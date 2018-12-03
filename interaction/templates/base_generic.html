@@ -12,17 +12,17 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-2">
-      {% block sidebar %}
-        <ul class="sidebar-nav">
-          <li><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="">關於我們</a></li>
-          <li><a href="">成為改變的一員！</a></li>
-        </ul>
-     {% endblock %}
+      <div class="col-sm-12 ">
+        {% include "header.html" %}
       </div>
-      <div class="col-sm-10 ">
+      <div class="col-sm-12">
+        {% include "nav_bar.html" %}
+      </div>
+      <div class="col-sm-12 ">
         {% block content %}{% endblock %}
+      </div>
+      <div class="col-sm-12">
+        {% include "footer.html" %}
       </div>
     </div>
   </div>
