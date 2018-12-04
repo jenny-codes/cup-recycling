@@ -12,17 +12,11 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-12 ">
-        {% include "header.html" %}
-      </div>
       <div class="col-sm-12">
         {% include "nav_bar.html" %}
       </div>
       <div class="col-sm-12 ">
         {% block content %}{% endblock %}
-      </div>
-      <div class="col-sm-12">
-        {% include "footer.html" %}
       </div>
     </div>
   </div>
