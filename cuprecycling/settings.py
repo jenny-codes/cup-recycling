@@ -28,8 +28,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'interaction.apps.InteractionConfig',
 ]
+
+# Custom Users
+AUTH_USER_MODEL = 'interaction.CupUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -124,3 +125,5 @@ STATIC_URL = '/static/'
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
+
+
