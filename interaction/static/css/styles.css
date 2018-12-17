@@ -1,5 +1,234 @@
-.sidebar-nav {
-    margin-top: 20px;
-    padding: 0;
-    list-style: none;
+body, html{
+	position: relative;
+	padding:0;
+	margin:0;
+	width:100vw;
+}
+:root{
+	--color-main:#5EBC9D;
+	--color-text:#ffffff;
+	--color-second:#efefef;
+	--color-third:#eeeeee;
+}
+
+/* navigation--------------------------------------------start */
+	.navbar{
+		display: flex;
+		flex-direction: row nowrap;
+		justify-content: space-between;
+		height:50px;
+		z-index: 100;
+		left:0;
+		right:0;
+		background-color:var(--color-main);
+		transition: 0.5s;
+	}
+	.navbar_fixed{
+		position: fixed;
+		top:0;
+	}
+	.logo{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 101;
+		padding-left: 20px;
+		font-weight:500;
+		font-size: 20px;
+		color:var(--color-text);
+	}
+	/* nav-list setting-----------------------start */
+		.menu{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 0;
+/*			overflow: hidden;*/
+			transition: height 1s;
+			position: absolute;
+			top:50px;
+			right:0;
+			left: 0;
+			background-color: var(--color-main);
+		}
+		/* .navbar,::before{
+			box-sizing:content-box;
+		} */
+		.toggle_menu{
+			width: 100vw;
+			height:100vh;
+		}
+		ul{
+			list-style: none;
+			padding: 0;
+		}
+		.nav-list{
+			top:50px;
+			height:50px;
+		}
+		.nav-item{
+			display: flex;
+			justify-content: center;
+			padding:15px 0px;
+		}
+		.nav-link{
+			display: block;
+			color:var(--color-text);
+			font-size:20px;
+			font-weight:500;
+			text-decoration: none;
+			transition: all 0.3s;
+		}
+		/* nav-list setting-----------------------end */
+	/* ham-basic setting----------------------start */
+		.ham{
+			display: block;
+			position: relative;
+			width:50px;
+			height:50px;
+		}
+		.ham-bar--origin{
+			position: absolute;
+			top:55%;
+			left:50%;
+		}
+		.ham-bar{
+			height:3px;
+			width:30px;
+			background-color: #fff;
+			margin:-2px 0 0 -15px;
+			transition: 0.3s;
+		}
+		.ham-bar--top{
+			transform: translateY(-7px);
+		}
+		.ham-bar--bottom{
+			transform: translateY(7px);	
+		}
+		#nav-toggle{
+			display: none;
+		}
+	/* ham-basic setting----------------------end */
+
+	/* while clicking on hamburger ----------------start*/
+
+		#nav-toggle:checked ~ .ham .ham-bar--middle{
+			display: none;
+		}
+		#nav-toggle:checked ~ .ham .ham-bar--top{
+			transform: rotate(45deg);
+		}
+		#nav-toggle:checked ~ .ham .ham-bar--bottom{
+			transform: rotate(-45deg);
+		}
+	/* while clicking on hamburger ----------------end*/
+/* navigation--------------------------------------------end */
+/* content--------------------------------------------start */
+.block{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom:20px;
+}
+.sec_title{
+	display: flex;
+	justify-content: center;
+	font-size:30px;
+	padding:10px 0;
+}
+.sec_subtitle{
+	font-size: 20px;
+}
+.plan_img_sec{
+	display: flex;
+	flex-direction:row;
+	flex-wrap: wrap;
+	width:80%;
+}
+.plan_img{
+	display: inline-block;
+	width:50%;
+	padding-bottom:50%;
+	background-color: var(--color-main);
+}
+.plan_img:first-child, .plan_img:last-child{
+	background-color: var(--color-second);
+}
+.google_map{
+	display: block;
+}
+button{
+	background-color: var(--color-main);
+	border: 2px solid var(--color-main);
+	border-radius:5px;
+	padding:5px 10px;
+	color:var(--color-text);
+	font-weight:500;
+}
+button:hover{
+	color:var(--color-main);
+	background-color: transparent;
+}
+/* content--------------------------------------------end */
+
+
+/* footer------------------------------------------------start */
+footer{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height:200px;
+	position: relative;
+	bottom: 0;
+	width:100vw;
+	background-color: var(--color-main);
+}
+.footer_text{
+	color: var(--color-text);
+	font-weight:500;
+	height:40px;
+}
+.footer_fb_icon{
+	width:40px;
+	height:40px;
+	background: url(../asset/facebook.png) center/contain no-repeat;
+}
+/* footer------------------------------------------------end */
+
+@media only screen and (min-width:768px){
+	.logo{
+		z-index: 101;
+	}
+	.ham{
+		display: none;
+	}
+	.nav-toggler{
+		display: flex;
+		justify-content: space-between;
+	}
+	.navbar{
+		height:50px;
+	}
+	.menu{
+		flex-direction: row;
+		justify-content: flex-end;
+		top:0;
+		float: right;
+		height: 50px;
+		transition: none;
+		background-color: none;
+	}
+	.nav-list{
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+	}
+	.nav-item{
+		padding:10px 20px;
+	}
+	.nav-link{
+		font-size: 18px;
+	}
 }
