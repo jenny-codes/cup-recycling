@@ -1,5 +1,13 @@
 {% extends "base_generic.html" %}
+{% block head %}為地球盡一份心力，從租借環保杯開始{% endblock %}
 
 {% block content %}
+
+  <form method="post">{% csrf_token %}
+    <ul class="list-group">
+      {{ form.as_ul }}
+      <input type="submit" value="填好ㄌ" class="btn btn-info">
+    </ul>
+  </form>
 
 {% endblock %}
