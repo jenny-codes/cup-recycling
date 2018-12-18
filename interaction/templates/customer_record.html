@@ -1,0 +1,56 @@
+{% extends "base_generic.html" %}
+
+{% block head %} 你的杯子 {% endblock %}
+
+
+{% block content %}
+  {% if checked_out_records %}
+  <div class="col-md-6">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">借出店家</th>
+          <th scope="col">借出日期</th>
+        </tr>
+      </thead>
+      {% for record in checked_out_records %} 
+      <tbody>
+        <tr>
+          <td>{{ record.prev_carrier.name }}</td>
+          <td>{{ record.timestamp|date:"Y / m / d" }}</td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+    {% else %}
+      <p>你還沒有租借杯子紀錄</p>
+    {% endif %}      
+  </div>
+  <div class="col-md-6">
+    {% if returned_records %}
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">歸還店家</th>
+          <th scope="col">歸還日期</th>
+        </tr>
+      </thead>
+      {% for record in returned_records %} 
+      <tbody>
+        <tr>
+          <td>{{ record.prev_carrier.name }}</td>
+          <td>{{ record.timestamp|date:"Y / m / d" }}</td>
+           <!-- ({{ {% now %}|timesince:record.timestamp }} ago) -->
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+    {% else %}
+      <p>你還沒有歸還杯子紀錄</p>
+    {% endif %}  
+  </div>
+
+  <div class="col-md-12"> 
+    <p>離我最近的合作店家</p>
+  </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base_generic.html" %}
+
+{% block head %}
+  杯子管理後台
+{% endblock %}
+
+{% block content %}
+
+  <div class="card col-md-12">
+    <div class="card-header">目前共 {{ cup_list|length }} 個杯子</div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">交給顧客</th>
+          </tr>
+        </thead>
+        {% for cup in cup_list %} 
+        <tbody>
+          <tr>
+            <td>{{ cup.pk }}</td>
+            <td><input type="text" class="form-control" id="usr" placeholder="顧客 ID"></td>
+            <td><button type="submit" class="btn btn-default">GO</button></td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>     
+    </div>
+  </div>
+{% endblock %}

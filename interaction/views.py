@@ -57,15 +57,36 @@ class BusinessSignUpView(CreateView):
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-class LoanedCupsByCustomerListView(LoginRequiredMixin, ListView):
-    """Generic class-based view listing books on loan to current user."""
-    model = Cup
-    template_name ='customer_cups.html'
+class CustomerRecordListView(LoginRequiredMixin, ListView):
+    """列出使用者以往的租借杯紀錄"""
+    model = Record
+    template_name ='customer_record.html'
+    context_object_name = 'checked_out_records' # default is 'record_list'
     paginate_by = 10
     
     def get_queryset(self):
-        return Cup.objects.filter(carrier=self.request.user).filter(status__exact='o')
+        return Record.objects.filter(current_carrier=self.request.user).order_by('timestamp')
 
+    def get_context_data(self, **kwargs):
+        context = super(CustomerRecordListView, self).get_context_data(**kwargs)
+        cups_returned = Record.objects.filter(prev_carrier=self.request.user).order_by('timestamp')
+        context['returned_records'] = cups_returned
+        return context
+
+class BusinessCupListView(LoginRequiredMixin, ListView):
+    """列出店家的租借杯紀錄，可以新增要求、將杯子拿給顧客、拿回杯子"""
+    model = Cup
+    template_name ='business_record.html'
+    paginate_by = 10
+
+    def get_queryset(self):
+        return Cup.objects.filter(carrier=self.request.user)
+
+    # def get_context_data(self, **kwargs):
+    #     context = super(BusinessCupListView, self).get_context_data(**kwargs)
+    #     cup_list = Cup.objects.filter(carrier=self.request.user)
+    #     context['cup_list'] = cup_list
+    #     return context
 
 # @login_required
 # @business_required 

@@ -7,16 +7,12 @@ class CupAdmin(admin.ModelAdmin):
     list_display = ('pk', 'status', 'carrier_type', 'carrier')
     list_filter = ('carrier_type', 'status')
 
-@admin.register(Machine)
-class MachineAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'location', 'active')
 
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import CustomerSignUpForm, CupUserChangeForm
 from .models import CupUser
-
 
 # FIX
 class CupUserAdmin(UserAdmin):
