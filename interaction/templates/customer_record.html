@@ -40,7 +40,6 @@
         <tr>
           <td>{{ record.prev_carrier.name }}</td>
           <td>{{ record.timestamp|date:"Y / m / d" }}</td>
-           <!-- ({{ {% now %}|timesince:record.timestamp }} ago) -->
         </tr>
       </tbody>
       {% endfor %}

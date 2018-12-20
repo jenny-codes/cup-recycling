@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from interaction.models import *
+import pdb 
 
 # from django.views import generic
 
@@ -23,19 +24,22 @@ from django.shortcuts import redirect
 from django.views.generic import CreateView, ListView
 
 from .forms import CustomerSignUpForm, BusinessSignUpForm
-from django.shortcuts import get_object_or_404, render
 from .decorators import customer_required, business_required
 
 class CustomerSignUpView(CreateView):
+    print('thee')
     model = CupUser
     form_class = CustomerSignUpForm
     template_name = 'registration/signup_form.html'
 
     def get_context_data(self, **kwargs):
+        print('get_context_data')
         kwargs['user_type'] = 'customer'
+        # pdb.set_trace()
         return super().get_context_data(**kwargs)
 
     def form_valid(self, form):
+        print('form_valid')
         user = form.save()
         login(self.request, user)
         return redirect('/')

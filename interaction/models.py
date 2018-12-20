@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse # Used to generate URLs by reversing the URL patterns
 from django.contrib.auth.models import AbstractUser, Group
 from datetime import date
+import re
 
 # TODO: add group
 
@@ -50,8 +51,8 @@ class Cup(models.Model):
 
 class CupUser(AbstractUser):
     phone_number = models.CharField(blank=True, null=True, max_length=10, help_text='e.g. 0912345678')
-    address = models.CharField(blank=True, null=True, max_length=300)
-    title = models.CharField(blank=True, null=True, max_length=300)
+    address = models.CharField(blank=True, null=True, max_length=300, help_text='貴公司地址')
+    title = models.CharField(blank=True, null=True, max_length=300, help_text='貴公司名稱')
 
     # staff(built-in), customer, business
     is_customer = models.BooleanField(default=False, verbose_name='customer status')
@@ -60,7 +61,11 @@ class CupUser(AbstractUser):
     @property
     def name(self):
         if self.first_name and self.last_name:
-            return self.first_name+self.last_name
+            english = r'(^[A-Za-z]+$)'
+            if re.match(english, self.first_name+self.last_name):
+                return ("%s %s" % (self.first_name, self.last_name))
+            else:
+                return self.last_name+self.first_name
         elif self.title:
             return self.title
         else:
