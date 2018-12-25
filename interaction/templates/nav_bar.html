@@ -1,50 +1,47 @@
-<nav class="navbar">
+<nav class="col-12 navbar">
   <a class="logo" href="{% url 'index' %}">LOGO</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="nav-toggler navbar-collapse" id="navbarNav">
+  <input id="nav-toggle" type="checkbox">
+  <label for="nav-toggle" class="ham">
+    <div class="ham-bar--origin">
+      <div class="ham-bar ham-bar--top"></div>
+      <div class="ham-bar ham-bar--middle"></div>
+      <div class="ham-bar ham-bar--bottom"></div>
+    </div>
+  </label>
+  <div class="nav-toggler navbar-collapse">
     <div class="menu">
       <ul class="nav-list">
-        {% if user.is_authenticated %}
-          {% if user.is_customer %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'customer-view-cups' %}">{{ user.name }}</a></li> 
-          {% elif user.is_business %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'business-manage-cups' %}">{{ user.name }}</a></li> 
+          {% if user.is_authenticated %}
+            {% if user.is_customer %}
+              <li class="nav-item"><a class="nav-link" href="{% url 'customer-view-cups' %}">{{ user.name }}</a></li> 
+            {% elif user.is_business %}
+              <li class="nav-item"><a class="nav-link" href="{% url 'business-manage-cups' %}">{{ user.name }}</a></li> 
+            {% else %}
+              <li class="nav-item nav-link"></li> 
+              <li class="nav-item"><a class="nav-link" href="">你是 {{ user.name }}</a></li> 
+              <li class="nav-item"><a class="nav-link" href="{% url 'customer-view-cups' %}">顧客頁面</a></li> 
+              <li class="nav-item"><a class="nav-link" href="{% url 'business-manage-cups' %}">商家頁面</a></li>
+            {% endif %} 
+            <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}?next={{request.path}}">登出</a></li>   
           {% else %}
-            <li class="nav-item nav-link"></li> 
-            <li class="nav-item"><a class="nav-link" href="">你是 {{ user.name }}</a></li> 
-            <li class="nav-item"><a class="nav-link" href="{% url 'customer-view-cups' %}">顧客頁面</a></li> 
-            <li class="nav-item"><a class="nav-link" href="{% url 'business-manage-cups' %}">商家頁面</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="/#sec_plan">計畫介紹</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/#sec_usage">如何使用</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">參與我們</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'customer_signup' %}">我是一般人</a>
+                <a class="dropdown-item" href="{% url 'business_signup' %}">我是商家</a>
+              </div>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}?next={{request.path}}">登入</a>
+            </li>
           {% endif %} 
-          <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}?next={{request.path}}">登出</a></li>   
-        {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="/#sec_plan">計畫介紹</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/#sec_usage">如何使用</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">參與我們</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{% url 'customer_signup' %}">我是一般人</a>
-              <a class="dropdown-item" href="{% url 'business_signup' %}">我是商家</a>
-            </div>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}?next={{request.path}}">登入</a>
-          </li>
-        {% endif %} 
-      </ul>
+        </ul>
     </div>
-    <input id="nav-toggle" type="checkbox">
-    <label for="nav-toggle" class="ham">
-      <div class="ham-bar--origin">
-        <div class="ham-bar ham-bar--top"></div>
-        <div class="ham-bar ham-bar--middle"></div>
-        <div class="ham-bar ham-bar--bottom"></div>
-      </div>
-    </label>
   </div>
 </nav>
