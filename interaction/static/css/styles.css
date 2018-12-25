@@ -43,8 +43,8 @@ body, html{
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+			overflow: hidden;
 			height: 0;
-/*			overflow: hidden;*/
 			transition: height 1s;
 			position: absolute;
 			top:50px;
@@ -52,9 +52,6 @@ body, html{
 			left: 0;
 			background-color: var(--color-main);
 		}
-		/* .navbar,::before{
-			box-sizing:content-box;
-		} */
 		.toggle_menu{
 			width: 100vw;
 			height:100vh;
@@ -82,6 +79,9 @@ body, html{
 		}
 		/* nav-list setting-----------------------end */
 	/* ham-basic setting----------------------start */
+		label{
+			margin: 0;
+		}
 		.ham{
 			display: block;
 			position: relative;
@@ -90,7 +90,7 @@ body, html{
 		}
 		.ham-bar--origin{
 			position: absolute;
-			top:55%;
+			top:50%;
 			left:50%;
 		}
 		.ham-bar{

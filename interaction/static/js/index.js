@@ -15,8 +15,5 @@ document.querySelector('#nav-toggle').addEventListener('click',function(){
   document.querySelector('.menu').classList.toggle('toggle_menu')
 })
 
-// $(document).ready(function() {
-//     $('dropdown-toggle').dropdown()
-// });
 
 
