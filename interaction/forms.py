@@ -38,6 +38,9 @@ class BusinessSignUpForm(UserCreationForm):
 class BusinessRequestCupsForm(forms.Form):
     cups_needed = forms.IntegerField(label='需要杯子的數量')
 
+class BusinessReceiveCupsForm(forms.Form):
+    cup_received = forms.IntegerField(label='收到杯子的 ID')
+
 # FIX
 class CupUserChangeForm(UserChangeForm):
 
