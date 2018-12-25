@@ -37,15 +37,6 @@ class Cup(models.Model):
     carrier_type = models.CharField(max_length=1, choices = CARRIER_TYPES, default='a')
     carrier = models.ForeignKey('CupUser', on_delete=models.SET_NULL, blank=True, null=True)
 
-    # TODO: add to the action when user checks out a cup
-    checked_out_date = models.DateField(null=True, blank=True)
-
-    @property
-    def duration(self):
-        if self.checked_out_date :
-            return (date.today() - self.checked_out_date).days
-        return None
-
     def __str__(self):
         return str(self.pk)
 
@@ -77,13 +68,27 @@ class CupUser(AbstractUser):
 
 class Record(models.Model):
     cup = models.ForeignKey('Cup', on_delete=models.SET_NULL, blank=True, null=True)
-    timestamp = models.DateField(auto_now_add=True)
-    source = models.ForeignKey('CupUser', related_name='source', on_delete=models.SET_NULL, blank=True, null=True) 
     user = models.ForeignKey('CupUser', related_name='user', on_delete=models.SET_NULL, blank=True, null=True) 
-    destination = models.ForeignKey('CupUser', related_name='destination', on_delete=models.SET_NULL, blank=True, null=True) 
-
+    source = models.ForeignKey('CupUser', related_name='source', on_delete=models.SET_NULL, blank=True, null=True) 
+    destination = models.ForeignKey('CupUser', related_name='destination', on_delete=models.SET_NULL, blank=True, null=True)
+    returned_at = models.DateTimeField(auto_now=True)        # record 被更新的時間就是杯子被還回來的時間
+    loaned_out_at = models.DateTimeField(auto_now_add=True)  # 杯子被租出去的時間就是 record 建立的時間
+    
     def __str__(self):
-        return str("from %s to %s" % source.name, user.name)
+        if self.source and self.user:
+            return ("from %s to %s" % (self.source.name, self.user.name))
+        else:
+            return self.id
+
+    @property
+    def duration(self):
+        """ returns the duration of this renting period """
+        if self.loaned_out_at and self.returned_at:
+            return (self.returned_at - self.loaned_out_at).days
+        return None
+
+    class meta:
+        ordering = ['-loaned_out_at']
 
 
 

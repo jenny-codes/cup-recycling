@@ -18,10 +18,10 @@
       {% for record in checked_out_records %} 
       <tbody>
         <tr>
+          <td>{{ record.loaned_out_at|date:"Y / m / d" }}</td>
           <td>{{ record.source.name }}</td>
-          <td>{{ record.timestamp|date:"Y / m / d" }}</td>
+          <td>{% if record.destination %} {{ record.returned_at|date:"Y / m / d" }} {% endif %}</td>
           <td>{{ record.destination.name }}</td>
-          <td>{{ record.timestamp|date:"Y / m / d" }}</td>
         </tr>
       </tbody>
       {% endfor %}
