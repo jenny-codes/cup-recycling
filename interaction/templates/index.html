@@ -1,44 +1,107 @@
 {% extends "base_generic.html" %}
 
-{% block head %}
-  租借杯
-{% endblock %}
-
 {% block content %}
-  <div class="col-12 sec_game block" id="sec_game">
-    <h1 class="sec_title">小遊戲</h1>
+  <div class="col-12 sec_game section" id="sec_game">
+    <h1>小遊戲</h1>
   </div>
-  <div class="col-12 sec_plan block" id="sec_plan">
-    <h1 class="sec_title">計畫介紹</h1>
-    <h2 class="sec_subtitle pt-2 pb-2">方便的免洗杯，其實帶來身體與環境的不便？</h2>
-    <div class="plan_img_sec">
-      <div class="plan_img"></div>
-      <div class="plan_img"></div>
-      <div class="plan_img"></div>
-      <div class="plan_img"></div>
+  <div class="col-12 sec_plan section" id="sec_plan">
+    <h1>計畫介紹</h1>
+    <h2 class="pt-2 pb-2">方便的免洗杯，其實帶來身體與環境的不便？</h2>
+    <div class="row plan_img_sec">
+      <div class="col plan_img"></div>
+      <div class="col plan_img"></div>
+      <div class="col plan_img"></div>
+      <div class="col plan_img"></div>
     </div>
-    <div class="plan_text_sec">
-    </div>
+    <p class="pt-4 plan_text_sec">
+      我們是一群台大的學生，</br>
+      針對以上問題提出了解決辦法，</br>
+      創造一個城市等級的環保杯循環系統
+    </p>
   </div>
-  <div class="col-12 sec_usage block" id="sec_usage">
-    <h1 class="sec_title">如何使用</h1>
-    <div class="sec_usgae_block usgae_block1">
-      <div class="GIF"></div>
-      <div class="usage_content">
-        
+  <div class="col-12 sec_usage section" id="sec_usage">
+    <h1>如何使用</h1>
+    <div class="block row usage_block1">
+      <div class="usage_block1-left">
+        <div class="use_GIF"></div>
+      </div>
+      <div class="usage_block1-right">
+        <h2 class="usage_subtitle pt-2 pb-2">如何進行？</br>非常簡單！</h2>
+        <ol>
+          <li>到任一我們的合作店家買飲料，選用環保租借杯，支付押金</li>
+          <li>享受美好的飲品</li>
+          <li>交還杯子到任一合作店家，拿回押金</li>
+        </ol>
       </div>
     </div>
-    <div class="sec_usgae_block usgae_block2"></div>
-    <div class="sec_usgae_block usgae_block3"></div>
-    <iframe class="google_map" width='100%' height='400' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=台北市新生南路三段90號&z=16&output=embed&t='></iframe>
+    <div class= "block">
+      <h2 class="pt-2 pb-2">我們想帶給你...</h2>
+      <div class="row img_block-content">
+        <div class="col-12 col-lg img_block-item">
+          <div class="img-set usage_img1"></div>
+          <div class="img-content">
+            <h3>輕鬆環保</h3>
+            <p>不用再洗杯、帶杯、感覺麻煩店家</p>
+          </div>
+        </div>
+        <div class="col-12 col-lg img_block-item">
+          <div class="img-set usage_img2"></div>
+          <div class="img-content">
+            <h3>省錢好賺</h3>
+            <p>環保杯飲料可折扣2元以上</p>
+          </div>
+        </div>
+        <div class="col-12 col-lg img_block-item">
+          <div class="img-set usage_img3"></div>
+          <div class="img-content">
+            <h3>安心健康</h3>
+            <p>食用級無雙酚A材質+衛生檢測</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="block usage_block3">
+      <h2 class="pt-2 pb-2">聽起來很理想化？</h2>
+      <p>我們正在把理想變成真實，</br>看看我們的試營運計畫影片吧！</p>
+      <iframe width="100%" height="400" src="https://www.youtube.com/embed/FaUgsf2b4Q8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="block usage_block4">
+      <h2 class="pt-2 pb-2">合作店家有哪些？</h3>
+      <p>目前推動台大校內飲料店家合作中</p>
+      <iframe class="google_map" width='100%' height='400px' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=台北市新生南路三段90號&z=16&output=embed&t='></iframe>
+    </div>
   </div>
-  <div class="col-12 sec_cooperation block" id="sec_cooperation">
-    <h1 class="sec_title">我想合作</h1>
-    <form action="#">
-      <button type="submit" value="了解更多">了解更多</button>
-  </form>
+  <div class="col-12 sec_cooperation section" id="sec_cooperation">
+    <h1>關於合作</h1>
+    <h2 class="sec_subtitle pt-2 pb-2">為什麼你該成為我們的夥伴？</h2>
+    <div class="row img_block-content">
+        <div class="col-12 col-lg img_block-item">
+          <div class="img-set coop_img1"></div>
+          <div class="img-content">
+            <h3>環保形象</h3>
+            <p>讓你的消費者知道</br>你的良好理念</p>
+          </div>
+        </div>
+        <div class="col-12 col-lg img_block-item">
+          <div class="img-set coop_img2"></div>
+          <div class="img-content">
+            <h3>省錢好賺</h3>
+            <p>網站曝光增加、</br>循環機制接觸新客</p>
+          </div>
+        </div>
+        <div class="col-12 col-lg img_block-item">
+          <div class="img-set coop_img3"></div>
+          <div class="img-content">
+            <h3>安心健康</h3>
+            <p>重複洗杯、用杯，</br>節省緩洗杯成本</p>
+          </div>
+        </div>
+      </div>
+      <form action="#">
+        <button type="submit" value="了解更多">了解更多</button>
+      </form>
   </div>
-  <footer>
+  <footer class="col-12">
     <div class="footer_text">一起讓世界變好吧！</div>
     <a class="footer_fb_icon" href="https://www.facebook.com"></a>
   </footer>

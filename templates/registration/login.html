@@ -1,7 +1,8 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-
+<div class="log_card">
+  <div class="log_head">
   {% if form.errors %}
     <p>你的帳號或密碼不對哦</p>
   {% endif %}
@@ -13,25 +14,29 @@
       <p>請登入</p>
     {% endif %}
   {% endif %}
-
   <form method="post" action="{% url 'login' %}">
   {% csrf_token %}
-  <table>
-    <tr>
-      <td>{{ form.username.label_tag }}</td>
-      <td>{{ form.username }}</td>
-    </tr>
-    <tr>
-      <td>{{ form.password.label_tag }}</td>
-      <td>{{ form.password }}</td>
-    </tr>
-  </table>
+  </div>
+  <div class="log_table">
+    <table>
+      <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+      </tr>
+    </table>
+  </div>
 
-  <input type="submit" value="login" class="btn btn-default" />
-  <input type="hidden" name="next" value="{{ next }}" />
-  </form>
+  <div class="log_bottom">
+    <a class="forget" href="{% url 'password_reset' %}">忘記密碼？</a>
+    <input type="submit" value="login" class="btn btn-default log_btn" />
+    <input type="hidden" name="next" value="{{ next }}" />
+    </form>
 
   {# Assumes you setup the password_reset view in your URLconf #}
-  <p><a href="{% url 'password_reset' %}">忘記密碼？</a></p>
-
+  </div>
+</div>
 {% endblock %}

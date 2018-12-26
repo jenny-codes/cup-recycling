@@ -4,11 +4,23 @@ body, html{
 	margin:0;
 	width:100vw;
 }
+html {
+  scroll-behavior: smooth;
+}
 :root{
 	--color-main:#5EBC9D;
 	--color-text:#ffffff;
 	--color-second:#efefef;
 	--color-third:#eeeeee;
+}
+.row{
+	justify-content: center;
+	align-items: center;
+	margin:0;
+	width: 100%;
+}
+.container-fluid{
+	padding:0;
 }
 
 /* navigation--------------------------------------------start */
@@ -22,6 +34,7 @@ body, html{
 		right:0;
 		background-color:var(--color-main);
 		transition: 0.5s;
+		padding:0px 10px ;
 	}
 	.navbar_fixed{
 		position: fixed;
@@ -32,7 +45,6 @@ body, html{
 		justify-content: center;
 		align-items: center;
 		z-index: 101;
-		padding-left: 20px;
 		font-weight:500;
 		font-size: 20px;
 		color:var(--color-text);
@@ -47,7 +59,7 @@ body, html{
 			height: 0;
 			transition: height 1s;
 			position: absolute;
-			top:50px;
+			top:0;
 			right:0;
 			left: 0;
 			background-color: var(--color-main);
@@ -76,6 +88,51 @@ body, html{
 			font-weight:500;
 			text-decoration: none;
 			transition: all 0.3s;
+			height:100%;
+		}
+		.nav-link:hover{
+			color: var(--color-text);
+		}
+		.nav-link::after{
+			display: block;
+			opacity:0;
+			content: "";
+			height:2px;
+			background-color: var(--color-text);
+		}
+		.nav-item:hover .nav-link::after{
+			animation: l2r 0.25s linear forwards;
+		}
+		@keyframes l2r{
+			0%{width:0;}
+			100%{opacity:1; width:100%;}
+		}
+		.dropdown{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		.dropdown-menu{
+			display: flex;
+			opacity: 0;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			border:none;
+			background-color: var(--color-main);
+		}
+		.dropdown-item{
+			color: var(--color-text);
+			text-align: center;
+			font-weight:500;
+		}
+		.dropdown-item:hover{
+			color: var(--color-main);
+		}
+		.show{
+			opacity: 1;
 		}
 		/* nav-list setting-----------------------end */
 	/* ham-basic setting----------------------start */
@@ -85,6 +142,7 @@ body, html{
 		.ham{
 			display: block;
 			position: relative;
+			z-index: 1000;
 			width:50px;
 			height:50px;
 		}
@@ -124,44 +182,119 @@ body, html{
 		}
 	/* while clicking on hamburger ----------------end*/
 /* navigation--------------------------------------------end */
+
+
+/* 主頁---------------------------------------------------------start */
 /* content--------------------------------------------start */
-.block{
+/* 共同設定-------------------------------------start */
+.section{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding-bottom:20px;
+	padding-bottom:50px;
+	padding-top:50px;
+	width:100%;
 }
-.sec_title{
-	display: flex;
-	justify-content: center;
-	font-size:30px;
+.block{
+	padding-top:30px;
+	padding-bottom:30px;
+}
+h1{
+	color: var(--color-main);
+	text-align: center;
+	font-size:24px;
 	padding:10px 0;
+	width: 100%;
 }
-.sec_subtitle{
+h2{
 	font-size: 20px;
+	text-align: center;
+	width: 100%;
 }
+h3{
+	font-size: 16px;
+	text-align: center;
+	width: 100%;
+	padding-top:20px;
+}
+p{
+	text-align: center;
+}
+.img_block-item{
+	display: flex;
+	flex-direction: column-reverse;
+	justify-content: center;
+	align-items: center; 
+}
+.img-set{
+	width:280px;
+	height:180px;
+	background-color: var(--color-main);
+}
+/* 共同設定---------------------------------------end */
+
+/* 小遊戲區-------------------------------------start */
+
+/* 小遊戲區---------------------------------------end */
+
+
+/* 計畫介紹-------------------------------------start */
 .plan_img_sec{
 	display: flex;
 	flex-direction:row;
 	flex-wrap: wrap;
-	width:80%;
 }
 .plan_img{
 	display: inline-block;
-	width:50%;
-	padding-bottom:50%;
+	flex-basis: 100%;
+	max-width: 300px;
+	height:200px;
 	background-color: var(--color-main);
 }
 .plan_img:first-child, .plan_img:last-child{
 	background-color: var(--color-second);
 }
+/* 計畫介紹---------------------------------------end */
+
+
+/* 如何使用-------------------------------------start */
+.use_GIF{
+	width:300px;
+	height:250px;
+	background-color:var(--color-main);
+}
+.usage_subtitle{
+	padding-left:20px;
+}
+.usage_block1{
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.usage_block1-right{
+	padding-top:20px;
+	flex-direction: column;
+	width:350px;
+}
+.usage_block1-left, .usage_block1-right{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.usage_block3,.usage_block4{
+	width:100%;
+}
 .google_map{
 	display: block;
 }
+/* 如何使用---------------------------------------end */
+/* 關於合作-------------------------------------start */
 button{
 	background-color: var(--color-main);
 	border: 2px solid var(--color-main);
-	border-radius:5px;
+	border-radius:25px;
+	width: 250px;
+	margin-top:20px;
 	padding:5px 10px;
 	color:var(--color-text);
 	font-weight:500;
@@ -170,6 +303,7 @@ button:hover{
 	color:var(--color-main);
 	background-color: transparent;
 }
+/* 關於合作---------------------------------------end */
 /* content--------------------------------------------end */
 
 
@@ -196,10 +330,63 @@ footer{
 	background: url(../asset/facebook.png) center/contain no-repeat;
 }
 /* footer------------------------------------------------end */
+/* 主頁-------------------------------------------------------------end */
 
-@media only screen and (min-width:768px){
+/* 登入登出--------------------------------------------------------start */
+.log_card{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-top:25vh;
+	height:260px;
+	border-radius: 5px;
+	box-shadow:0px 0px 5px 0px #cccccc;
+	overflow: hidden;
+}
+.log_head{
+	left: 0;
+	right:0;
+	background-color: var(--color-main);
+	height:50px;
+}
+.log_head p{
+	line-height: 50px;
+	color: var(--color-text);
+}
+.log_table{
+	padding:30px 20px 20px 20px;
+}
+.log_bottom{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding:20px;
+}
+.log_btn{
+	background-color: var(--color-main);
+	color: var(--color-text);
+	padding:5px 20px;
+}
+.log_btn:hover{
+	box-shadow:0px 0px 5px 0px var(--color-main);
+}
+td{
+	padding: 5px 5px;
+}
+input{
+	height: 35px;
+	border-radius: 3px;
+	border: 1px solid var(--color-second);
+}
+
+
+/* 登入登出--------------------------------------------------------end */
+
+@media only screen and (min-width:650px){
 	.logo{
-		z-index: 101;
+		z-index: 1;
 	}
 	.ham{
 		display: none;
@@ -208,8 +395,9 @@ footer{
 		display: flex;
 		justify-content: space-between;
 	}
-	.navbar{
-		height:50px;
+	.logo{
+		padding-top: 10px;
+		padding-bottom: 10px;
 	}
 	.menu{
 		flex-direction: row;
@@ -219,16 +407,65 @@ footer{
 		height: 50px;
 		transition: none;
 		background-color: none;
+		padding-top: 10px;
+		padding-bottom: 10px;
 	}
 	.nav-list{
 		display: flex;
 		flex-direction: row;
 		justify-content: flex-end;
+		justify-content: flex-start;
 	}
 	.nav-item{
-		padding:10px 20px;
+		padding:0px 20px;
 	}
 	.nav-link{
 		font-size: 18px;
+	}
+	.plan_img_sec{
+		width:600px;
+	}
+	.plan_img{
+		flex-basis: 50%;
+	}
+	.img_block-item{
+		flex-direction: column; 
+	}
+	.usage_subtitle{
+		text-align: left;
+	}
+	.usage_block1{
+		flex-direction: row;
+	}
+	.usage_block1-left{
+		justify-content: flex-start;
+	}
+	.usage_block1-right{
+		padding-left:20px;
+		align-items: flex-start;
+	}
+	.navbar{
+		background-color: none;
+	}
+	.nav-list{
+		height:30px;
+	}
+	.dropdown{
+		flex-direction: column;
+		align-items: initial;
+	}
+	.dropdown-menu{
+		top:30px;
+		position: absolute;
+	}
+	.menu{
+		background-color: transparent;
+		top:0;
+		height:150px;
+		flex-direction: row;
+		align-items: flex-start;
+	}
+	.nav-link{
+		padding:0px;
 	}
 }
