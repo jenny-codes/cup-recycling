@@ -11,7 +11,8 @@ html {
 	--color-main:#5EBC9D;
 	--color-text:#ffffff;
 	--color-second:#efefef;
-	--color-third:#eeeeee;
+	--color-shadow:#454545;
+	--color-warning:#FFAE51;
 }
 .row{
 	justify-content: center;
@@ -33,6 +34,7 @@ html {
 		left:0;
 		right:0;
 		background-color:var(--color-main);
+		box-shadow: 0px 0px 3px var(--color-shadow);
 		transition: 0.5s;
 		padding:0px 10px ;
 	}
@@ -126,6 +128,7 @@ html {
 		.dropdown-item{
 			color: var(--color-text);
 			text-align: center;
+			pointer-events: none;
 			font-weight:500;
 		}
 		.dropdown-item:hover{
@@ -133,6 +136,10 @@ html {
 		}
 		.show{
 			opacity: 1;
+			pointer-events: auto;
+		}
+		.click{
+			pointer-events: auto;
 		}
 		/* nav-list setting-----------------------end */
 	/* ham-basic setting----------------------start */
@@ -231,10 +238,107 @@ p{
 	height:180px;
 	background-color: var(--color-main);
 }
+
+.btn-style{
+	background-color: var(--color-main);
+	border: 2px solid var(--color-main);
+	margin-top:20px;
+	padding:5px 10px;
+	border-radius:25px;
+	color:var(--color-text);
+	font-weight:500;
+}
+.btn-style:hover{
+	color:var(--color-main);
+	background-color: transparent;
+}
+.hint_word{
+	color: var(--color-warning);
+	font-weight:500;
+}
 /* 共同設定---------------------------------------end */
 
 /* 小遊戲區-------------------------------------start */
+.sec_game{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.game_btn_sec{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.game-btn{
+	margin:20px;
+}
+.game_highlight_word{
+	font-size: 20px;
+	font-weight: 500;
+	color: var(--color-main);
+}
+.game_small_sec{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.game_small_sec p{
+	font-weight:500;
+}
+.game_small_row{
+	display: flex;
+	flex-direction:row;
+	align-items: flex-end;
+}
+.game_img{
+	width:150px;
+	height:100px;
+	background-color: var(--color-main);
+	margin:10px 20px;
+}
+.game_bar_sec{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 
+.slider {
+  -webkit-appearance: none;
+  width: 400px;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+	appearance: none;
+	border-radius: 50%;
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background-color: var(--color-main);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 23px;
+	height: 24px;
+	border-radius: 50%;
+  border: 0;
+  background-color: var(--color-main);
+  cursor: pointer;
+}
 /* 小遊戲區---------------------------------------end */
 
 
@@ -289,19 +393,8 @@ p{
 }
 /* 如何使用---------------------------------------end */
 /* 關於合作-------------------------------------start */
-button{
-	background-color: var(--color-main);
-	border: 2px solid var(--color-main);
-	border-radius:25px;
+.see-more-btn{
 	width: 250px;
-	margin-top:20px;
-	padding:5px 10px;
-	color:var(--color-text);
-	font-weight:500;
-}
-button:hover{
-	color:var(--color-main);
-	background-color: transparent;
 }
 /* 關於合作---------------------------------------end */
 /* content--------------------------------------------end */
@@ -309,6 +402,7 @@ button:hover{
 
 /* footer------------------------------------------------start */
 footer{
+	z-index: -1;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -330,6 +424,45 @@ footer{
 	background: url(../asset/facebook.png) center/contain no-repeat;
 }
 /* footer------------------------------------------------end */
+
+/* go-to-top button------------------------------------start */
+#top_button{
+	position: fixed;
+	bottom: 10px;
+	right:10px;
+	width:40px;
+	height:40px;
+	border-radius: 50%;
+	border: none;
+	outline: none;
+	background-color: var(--color-main);
+	box-shadow: 0px 0px 5px var(--color-shadow);
+}
+.top_button::before, .top_button::after{
+	content: "";
+	background-color: #fff;
+	display: block;
+	width:15px;
+	height:2px;
+	position: absolute;
+	top:45%;
+	animation: ease-in-out jump 1s both infinite;
+}
+.top_button::before{
+	left:19%;
+	transform: rotate(-45deg);
+}
+.top_button::after{
+	right:19%;
+	transform: rotate(45deg);
+}
+@keyframes jump{
+	0%{top:40%;}
+	50%{top:65%;}
+	100%{top:40%;}
+}
+/* go-to-top button--------------------------------------end */
+
 /* 主頁-------------------------------------------------------------end */
 
 /* 登入登出--------------------------------------------------------start */
@@ -383,7 +516,6 @@ input{
 
 
 /* 登入登出--------------------------------------------------------end */
-
 @media only screen and (min-width:650px){
 	.logo{
 		z-index: 1;
@@ -455,7 +587,7 @@ input{
 		align-items: initial;
 	}
 	.dropdown-menu{
-		top:30px;
+		top:45px;
 		position: absolute;
 	}
 	.menu{
