@@ -42,8 +42,8 @@ class Cup(models.Model):
 
 class CupUser(AbstractUser):
     phone_number = models.CharField(blank=True, null=True, max_length=10, help_text='e.g. 0912345678')
-    address = models.CharField(blank=True, null=True, max_length=300, help_text='貴公司地址')
-    title = models.CharField(blank=True, null=True, max_length=300, help_text='貴公司名稱')
+    address = models.CharField(blank=True, null=True, max_length=300)
+    title = models.CharField(blank=True, null=True, max_length=300)
 
     # staff(built-in), customer, business
     is_customer = models.BooleanField(default=False, verbose_name='customer status')

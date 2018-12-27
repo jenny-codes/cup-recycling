@@ -1,4 +1,5 @@
 from interaction.views import * 
+from interaction.forms import BusinessRequestCupsForm, BusinessReceiveCupsForm, BusinessAssignCupsForm
 
 class BusinessCupListView(LoginRequiredMixin, ListView):
     """列出店家的租借杯紀錄，可以跟 admin 要求杯子、將杯子拿給顧客、拿回杯子"""
@@ -8,28 +9,24 @@ class BusinessCupListView(LoginRequiredMixin, ListView):
 
     def post(self, request, *args, **kwargs):
         """ when a business assigns a cup to a user, create a Record and update Cup model"""
-        if request.POST['user_id'].isdigit() and int(request.POST['user_id']) > 0:
-            user = CupUser.objects.get(id=int(request.POST['user_id']))
-            if user and user.is_customer:
-                cup = Cup.objects.filter(id=request.POST['cup_id'])
-                record = Record(cup=cup.first(), source=request.user, user=user)
-                record.save()
-                cup.update(carrier = user, status = 'o', carrier_type = 'u')
-            else:
-                print('輸入錯誤：這個 ID 沒有人，或不是顧客喔')
-        else:
-            print('輸入錯誤：只能輸入正整數哦')
+        form = BusinessAssignCupsForm(request.POST)
+        if form.is_valid():
+            cup = Cup.objects.filter(id=form.cleaned_data['cup_id'])
+            customer = CupUser.objects.get(id=form.cleaned_data['customer'])
+            record = Record(cup=cup.first(), source=request.user, user=customer)
+            record.save()
+            cup.update(carrier = customer, status = 'o', carrier_type = 'u')
 
         return HttpResponseRedirect(reverse('business-manage-cups')) 
 
     def get_queryset(self):
         return Cup.objects.filter(carrier=self.request.user)
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(BusinessCupListView, self).get_context_data(**kwargs)
-    #     cup_list = Cup.objects.filter(carrier=self.request.user)
-    #     context['cup_list'] = cup_list
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super(BusinessCupListView, self).get_context_data(**kwargs)
+        form = BusinessAssignCupsForm()
+        context['form'] = form
+        return context
 
 @business_required
 def request_cups(request):

@@ -21,13 +21,15 @@
           <tr>
             <form action="" method="post">
               {% csrf_token %}
-              <input type="hidden" name="cup_id" value="{{ cup.id }}"><br>
+              <input type="hidden" name="cup_id" value="{{ cup.id }}">
               <td>{{ cup.pk }}</td>
-              <td><input type="number" name="user_id" class="form-control" id="user" placeholder="顧客 ID" min=1></td>
+              <td>{{ form.customer }}</td>
               <td><input type="submit" name="submit" class="btn btn-warning" value="GO"></td>
             </form>
           </tr>
         </tbody>
+        {% empty %}
+          <p> 你沒有杯子庫存，去申請吧 </p>
         {% endfor %}
       </table>     
     </div>
