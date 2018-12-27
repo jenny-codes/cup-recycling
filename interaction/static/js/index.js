@@ -40,3 +40,47 @@ function scrollDown(){
 function toTop(){
   document.documentElement.scrollTop = 0;
 }
+
+$(document).ready(function() {
+  $(".game-slide:first").fadeIn()
+});
+
+function changeFrame(item){
+  var frame = item.closest( ".game-slide" );
+  if ( frame.next().length != 0 ){
+    frame.slideUp();
+    frame.next().slideDown();
+  } else{  
+    $("html, body").scrollTop($("#sec_cooperation").offset().top);
+  }
+};
+
+$( "#q1-1, #q1-2" ).click(function() {
+  changeFrame($( this ));
+});
+
+$( "#q2" ).click(function() {
+  var n_drinks = $( "#q2-drinks" ).val();
+  $( ".a3-1" ).text(n_drinks*3);
+  $( ".a3-2" ).text(n_drinks*3);
+  $( ".a3-3" ).text(n_drinks*3);
+  $( ".a3-4" ).text(n_drinks*3);
+  $( ".a3-5" ).text(n_drinks*3);
+
+  changeFrame($( this ));
+});
+
+$( "#q3" ).click(function() {
+  changeFrame($( this ));
+});
+
+// slider 功能
+var slider = document.getElementById("slider");
+slider.oninput = function() {
+  scaler = this.value/50;
+  $( ".game-scalable" ).each(function() {
+    original = $( this ).text();
+    $( this ).text(original*scaler);
+  });
+}
+
