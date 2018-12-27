@@ -339,6 +339,12 @@ p{
   background-color: var(--color-main);
   cursor: pointer;
 }
+
+/* Slides */
+.game-slide {
+  display: none;
+}
+
 /* 小遊戲區---------------------------------------end */
 
 
