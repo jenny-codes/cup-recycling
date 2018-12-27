@@ -3,6 +3,115 @@
 {% block content %}
   <div class="col-12 sec_game section" id="sec_game">
     <h1>小遊戲</h1>
+    <div class="col-12 slideshow-container">
+      <div class="mySlides">
+        <p class="col-12 game_begin_intro">
+          台灣蔚為手搖杯王國，對許多人來說，</br>
+          喝飲料就像是呼吸一樣平常的事情，</br>
+          喝飲料使用外帶杯更是理所當然。（呼～）</br>
+          魔鬼藏在細節裡，這麼理所當然的事情，</br>
+          我們還是想問一句，你不好奇...
+        </p>
+        <p class="col-12 game_highlight_word">
+          外帶飲料會造成什麼影響嗎？
+        </p>
+        <div class="col-12 game_btn_sec">
+          <form action="#">
+            <button class="game-btn btn-style" type="submit" value="想～">想～</button>
+          </form>
+          <form action="#">
+            <button class="game-btn btn-style" type="submit" value="姑且聽之">姑且聽之</button>
+          </form>
+        </div>
+      </div>
+      <div class="mySlides">
+        <p class="col-12 game_highlight_word">
+          我一週用免洗杯喝了____杯飲料
+        </p>
+        <p class="col-12 hint_word">（請輸入阿拉伯數字）</p>
+        <div class="game_btn_sec">
+          <form action="#">
+            <button class="game-btn btn-style" type="submit" value="看結果">看結果</button>
+          </form>
+        </div>
+      </div>
+      <div class="mySlides">
+        <div class="col-12 game_content">
+          <h2 class="col-12 game_title">
+            您每年相當於消耗了...
+          </h2>
+          <div class="row game_outcome">
+            <div class="col-sm-12 col-md-6 col-lg-4 game_small_sec">
+              <div class="game_small_row">
+                  <div class="game_img"></div>
+                  <p>＿＿個你</p>
+              </div>
+              <p>一樣高的免洗杯垃圾</p>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4  game_small_sec">
+              <div class="game_small_row">
+                  <div class="game_img"></div>
+                  <p>＿＿kg的水</p>
+              </div>
+              <p>相當於可以洗___次澡</p>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4  game_small_sec">
+              <div class="game_small_row">
+                  <div class="game_img"></div>
+                  <p>＿＿kg排碳</p>
+              </div>
+              <p>相當於一棵樹努力＿＿天的固碳量</p>
+            </div>  
+          </div>
+          <p class="col-12 game_highlight_word">
+            如果你帶環保杯，能帶來不小改變
+          </p>
+        </div>
+        <div class="col-12 game_btn_sec">
+            <form action="#">
+              <button class="game-btn btn-style" type="submit" value="怎麼說？">怎麼說？</button>
+            </form>
+          </div>
+      </div>
+      <div class="mySlides">
+          <div class="col-12 game_content">
+            <h2 class="col-12 game_title">
+              您每年相當於消耗了...
+            </h2>
+            <div class="row game_outcome">
+              <div class="col-sm-12 col-md-6 col-lg-4 game_small_sec">
+                <div class="game_small_row">
+                    <div class="game_img"></div>
+                    <p>＿＿個你</p>
+                </div>
+                <p>一樣高的免洗杯垃圾</p>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-4  game_small_sec">
+                <div class="game_small_row">
+                    <div class="game_img"></div>
+                    <p>＿＿kg的水</p>
+                </div>
+                <p>相當於可以洗___次澡</p>
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-4  game_small_sec">
+                <div class="game_small_row">
+                    <div class="game_img"></div>
+                    <p>＿＿kg排碳</p>
+                </div>
+                <p>相當於一棵樹努力＿＿天的固碳量</p>
+              </div>  
+            </div>
+            <p class="col-12 game_highlight_word">
+              滴水穿石，許多的努力往往不是馬上見效，</br>
+              但如果你持續更久的時間呢？
+            </p>
+          </div>
+          <div class="col-12 mt-4 game_bar_sec">
+              <p class="col-12 hint_word">（請移動花花）</p>
+              <input type="range" min="1" max="100" value="50" class="rangebar" id="myRange">
+          </div>
+        </div>
+    </div>
   </div>
   <div class="col-12 sec_plan section" id="sec_plan">
     <h1>計畫介紹</h1>
@@ -98,9 +207,10 @@
         </div>
       </div>
       <form action="#">
-        <button type="submit" value="了解更多">了解更多</button>
+        <button class="see-more-btn btn-style" type="submit" value="了解更多">了解更多</button>
       </form>
   </div>
+  <button onclick="toTop()" class="top_button" id="top_button" title="go to top"></button>
   <footer class="col-12">
     <div class="footer_text">一起讓世界變好吧！</div>
     <a class="footer_fb_icon" href="https://www.facebook.com"></a>
