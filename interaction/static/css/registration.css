@@ -1,0 +1,33 @@
+.input-sec{
+	height:100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* .input-sec幫我動態加一個div把全部的東西包住～ */
+
+
+form{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  flex-direction: column;
+  padding-top:50px;
+}
+form label{
+	padding:20px;
+	font-size:18px;
+}
+form input{
+	margin:5px 0px 10px 0px;
+	padding-left:10px; 
+	text-align: left;
+}
+.btn-info{
+	background-color: #5EBC9D;
+  border: 2px solid #5EBC9D;
+	padding:5px 10px;
+	color:white;
+	font-weight:500;
+  line-height: 20px;
+}

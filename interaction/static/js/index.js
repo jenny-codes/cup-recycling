@@ -16,7 +16,6 @@ document.querySelector('#nav-toggle').addEventListener('click',function(){
 document.querySelector('#navbarDropdown').addEventListener('click',function(){
   document.querySelector('.dropdown-menu').classList.toggle('show');
   var dropdownItem = document.querySelectorAll('.dropdown-item');
-  console.log(dropdownItem);
   for(i=0;i<dropdownItem.length;i++){
     dropdownItem[i].classList.toggle('click');
   }
@@ -54,6 +53,9 @@ function changeFrame(item){
     $("html, body").scrollTop($("#sec_cooperation").offset().top);
   }
 };
+
+
+
 
 $( "#q1-1, #q1-2" ).click(function() {
   changeFrame($( this ));

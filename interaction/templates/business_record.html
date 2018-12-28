@@ -7,13 +7,14 @@
 {% block content %}
 
   <div class="card col-md-12">
-    <div class="card-header">目前共 {{ cup_list|length }} 個杯子</div>
-    <div class="card-body">
-      <table class="table table-hover">
-        <thead>
+    <div class="card-header">目前共 <span class="highlight-text">{{ cup_list|length }} </span>個杯子</div>
+    <div class="card-body table_sec">
+      <table class="col-md-8 col-lg-7 table table-hover">
+        <thead class="table-head">
           <tr>
-            <th scope="col">ID</th>
+            <th class="th-id" scope="col">ID</th>
             <th scope="col">交給顧客</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         {% for cup in cup_list %} 
@@ -22,9 +23,9 @@
             <form action="" method="post">
               {% csrf_token %}
               <input type="hidden" name="cup_id" value="{{ cup.id }}">
-              <td>{{ cup.pk }}</td>
+              <td><div class="table_id">{{ cup.pk }}</div></td>
               <td>{{ form.customer }}</td>
-              <td><input type="submit" name="submit" class="btn btn-warning" value="GO"></td>
+              <td><input type="submit" name="submit" class="btn btn-style send-btn" value="Send"></td>
             </form>
           </tr>
         </tbody>
@@ -34,11 +35,9 @@
       </table>     
     </div>
   </div>
-  <div class='col-md-2 m-3'>
-    <a href="{% url 'business-request-cups' %}" class='btn btn-info'>申請杯子</a>
-  </div>
-  <div class='col-md-2 m-3'>
-    <a href="{% url 'business-receive-cups' %}" class='btn btn-info'>收回杯子</a>
+  <div class='btn-area col-12'>
+    <a href="{% url 'business-request-cups' %}" class='btn co-btn btn-style'>申請杯子</a>
+    <a href="{% url 'business-receive-cups' %}" class='btn co-btn btn-style'>收回杯子</a>
   </div>
   
 {% endblock %}
