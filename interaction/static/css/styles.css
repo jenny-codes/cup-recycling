@@ -226,13 +226,15 @@ h1{
 	width: 100%;
 }
 h2{
-	font-size: 24px;
+	font-size: 20px;
 	text-align: center;
-	width: 100%;
+	background-color: var(--color-second);
+	border-radius: 42% 58% 40% 60% / 59% 35% 65% 41%;
+	padding:30px;
 }
 h3{
 	color: var(--color-main);
-	font-size: 20px;
+	font-size: 16px;
 	text-align: center;
 	width: 100%;
 }
@@ -240,6 +242,7 @@ p{
 	text-align: center;
 	font-weight:500;
 	margin:0;
+	padding-bottom: 20px;
 }
 .img_block-item{
 	display: flex;
@@ -290,11 +293,34 @@ select{
 
 /* 小遊戲區-------------------------------------start */
 .sec_game{
-	margin:50px;
+	margin:20px 50px;
 	display: flex;
 	justify-content: center;
 	height:100%;
 	padding:20px;
+}
+.game-slide{
+	background:var(--color-second);
+	border-radius: 16% 84% 34% 66% / 76% 22% 78% 24%;
+	padding:50px 0px;
+}
+.game-slide h2{
+	background: none;
+}
+.game_logo{
+	margin: 30px auto;
+}
+.game_start{
+	display: block;
+	height:200px;
+	animation: linear shake 1s infinite both;
+}
+@keyframes shake{
+	0%{transform: rotate(-20deg);}
+	25%{transform: rotate(0deg);}
+	50%{transform: rotate(20deg);}
+	75%{transform: rotate(0deg);}
+	100%{transform: rotate(-20deg);}
 }
 .game_intro{
 	font-weight: 500;
@@ -433,9 +459,6 @@ button{
 	display: flex;
 	justify-content: center;
 	align-content: center;
-	background:var(--color-second);
-	border-radius: 16% 84% 34% 66% / 76% 22% 78% 24%;
-	padding:100px 10px;
 }
 .game-slide {
   display: none;
@@ -506,14 +529,11 @@ button{
 .usage_subtitle{
 	padding-left:20px;
 }
-.usage_block1{
+.usage_block{
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	width:100%;
-}
-.usage_block1 ol{
 	width:100%;
 }
 .process_sec{
@@ -586,6 +606,9 @@ button{
 	width:100%;
 	border-top:1px solid var(--color-second);
 }
+.process_text_sec p{
+	padding:0;
+}
 .usage_block3{
 	display: flex;
 	flex-direction: column;
@@ -632,8 +655,8 @@ button{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width:150px;
-	height:150px;
+	width:200px;
+	height:200px;
 	background-color: var(--color-light);
 	z-index: -1;
 }
@@ -932,12 +955,9 @@ td{
 	.usage_subtitle{
 		text-align: center;
 	}
-	.usage_block1{
+	.usage_block{
 		flex-direction: column;
 		justify-content:center;
-	}
-	.usage_block1, .usage_block2, .usage_block3,	.usage_block4{
-		justify-content: center;
 	}
 	.process_sec{
 		flex-direction: row;
