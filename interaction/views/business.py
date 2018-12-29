@@ -26,6 +26,7 @@ class BusinessCupListView(LoginRequiredMixin, ListView):
         context = super(BusinessCupListView, self).get_context_data(**kwargs)
         form = BusinessAssignCupsForm()
         context['form'] = form
+        context["n_cups"] = Cup.objects.filter(carrier=self.request.user).count()
         return context
 
 @business_required
