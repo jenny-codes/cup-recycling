@@ -24,7 +24,7 @@
               {% csrf_token %}
               <input type="hidden" name="cup_id" value="{{ cup.id }}">
               <td><div class="table_id">{{ cup.pk }}</div></td>
-              <td>{{ form.customer }}</td>
+              <td>{{ assign_form.customer }}</td>
               <td><input type="submit" name="submit" class="btn btn-style send-btn" value="Send"></td>
             </form>
           </tr>
@@ -36,8 +36,53 @@
     </div>
   </div>
   <div class='btn-area col-12'>
-    <a href="{% url 'business-request-cups' %}" class='btn co-btn btn-style'>申請杯子</a>
-    <a href="{% url 'business-receive-cups' %}" class='btn co-btn btn-style'>收回杯子</a>
+    <button type="button" class="btn co-btn btn-style" data-toggle="modal" data-target="#requestModal">
+    申請杯子
+    </button>
+    <button type="button" class="btn co-btn btn-style" data-toggle="modal" data-target="#receiveModal">
+    拿回杯子
+    </button>
   </div>
-  
+
+<!-- Modal -->
+<div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">申請杯子</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'business-request-cups' %}" method="post" class="input-area">
+          {% csrf_token %}
+          {{ request_form }}
+          <input type="submit" value="提交" name="submit" class="btn btn-style">
+        </form> 
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="receiveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">拿回杯子</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'business-request-cups' %}" method="post" class="input-area">
+          {% csrf_token %}
+          {{ receive_form }}
+          <input type="submit" value="提交" name="submit" class="btn btn-style">
+        </form> 
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
