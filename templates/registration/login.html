@@ -3,20 +3,22 @@
 {% block content %}
 <div class="log_card">
   <div class="log_head">
+    <p>登入</p>
+  </div>
   {% if form.errors %}
-    <p>你的帳號或密碼不對哦</p>
+    <p class="log_warning_word">你的帳號或密碼不對哦</p>
   {% endif %}
 
   {% if next %}
     {% if user.is_authenticated %}
-      <p>你是不是到了不該進來的地方惹</p>
+      <p class="log_warning_word">你是不是到了不該進來的地方惹</p>
     {% else %}
-      <p>請登入</p>
+      <p class="log_warning_word">請登入</p>
     {% endif %}
   {% endif %}
   <form method="post" action="{% url 'login' %}">
   {% csrf_token %}
-  </div>
+  
   <div class="log_table">
     <table>
       <tr>

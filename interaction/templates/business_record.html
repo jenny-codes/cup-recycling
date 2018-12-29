@@ -25,7 +25,7 @@
               <input type="hidden" name="cup_id" value="{{ cup.id }}">
               <td><div class="table_id">{{ cup.pk }}</div></td>
               <td>{{ assign_form.customer }}</td>
-              <td><input type="submit" name="submit" class="btn btn-style send-btn" value="Send"></td>
+              <td><input type="submit" name="submit" class="btn send-btn" value="Send"></td>
             </form>
           </tr>
         </tbody>
@@ -51,14 +51,17 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">申請杯子</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+            <div class="x-origin" aria-hidden="true">
+                <span class="x-icon x-icon-l"></span>
+                <span class="x-icon x-icon-r"></span>
+              </div>
         </button>
       </div>
       <div class="modal-body">
         <form action="{% url 'business-request-cups' %}" method="post" class="input-area">
           {% csrf_token %}
           {{ request_form }}
-          <input type="submit" value="提交" name="submit" class="btn btn-style">
+          <input type="submit" value="提交" name="submit" class="btn input-btn-style">
         </form> 
       </div>
     </div>
@@ -71,14 +74,17 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">拿回杯子</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <div class="x-origin" aria-hidden="true">
+            <span class="x-icon x-icon-l"></span>
+            <span class="x-icon x-icon-r"></span>
+          </div>
         </button>
       </div>
       <div class="modal-body">
         <form action="{% url 'business-request-cups' %}" method="post" class="input-area">
           {% csrf_token %}
           {{ receive_form }}
-          <input type="submit" value="提交" name="submit" class="btn btn-style">
+          <input type="submit" value="提交" name="submit" class="btn input-btn-style">
         </form> 
       </div>
     </div>

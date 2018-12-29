@@ -267,7 +267,13 @@ p{
 	color: var(--color-text);
 	background-color: var(--color-main);
 }
-.btn-style:hover{
+.input-btn-style{
+	color: var(--color-text);
+	background-color: var(--color-main);
+	border-radius: 5px;
+	width:158px;
+}
+.input-btn-style:hover, .btn-style:hover{
 	background-color: var(--color-btn);
 }
 select, option{
@@ -288,6 +294,44 @@ select{
 	padding:0px 20px;
 	color: var(--color-main);
 	position: relative;
+}
+.modal-content{
+	width:300px;
+	border:none;
+}
+.modal-dialog{
+	display: flex;
+	justify-content: center;
+	align-items:center;
+}
+.modal-header{
+	background-color: var(--color-main);
+	height:60px;
+}
+.modal-title{
+	color: var(--color-text);
+}
+.modal-header .close{
+	margin:0px;
+}
+.x-origin{
+	position: relative;
+}
+.x-icon{
+	display: block;
+	width:15px;
+	height:2px;
+	background-color: var(--color-text);
+	position: absolute;
+}
+.x-icon-l{
+	transform: translateX(1px) rotate(45deg);
+}
+.x-icon-r{
+	transform:translateX(1px) rotate(-45deg);
+}
+.modal-body form label{
+	padding:0;
 }
 /* 共同設定---------------------------------------end */
 
@@ -472,36 +516,34 @@ button{
 	display: flex;
 	justify-content: center;
 }
-.link_dot{
+.switch_el{
 	width:10px;
 	height:10px;
+	opacity: 0.7;
+}
+.switch_el:hover{
+	opacity: 1;
+}
+.link_dot{
 	margin: 10px;
 	border-radius: 50%;
 	background-color: var(--color-main);
 	opacity: 0.7;
 	cursor: pointer;
 }
-.link_dot:hover{
-	opacity: 1;
-}
 .plan_img_sec{
 	position: relative;
 	width:100%;
-	height:300px;
+	height:350px;
 }
 .plan_img{
-	display: block;
-	opacity: 0;
+	position: absolute;
 	flex-basis: 100%;
 	max-width: 500px;
-	height:250px;
-	position: absolute;
-}
-.img_show{
-	opacity: 1;
+	height:300px;
 }
 .plan_img1{
-	background: url(../asset/1x/air-poll.png) center/cover no-repeat;
+	background:url(../asset/1x/air-poll.png) center/cover no-repeat;
 }
 .plan_img2{
 	background: url(../asset/1x/recy.png) center/cover no-repeat;
@@ -762,7 +804,7 @@ footer{
 	flex-direction: column;
 	justify-content: space-between;
 	margin-top:25vh;
-	height:260px;
+	height:100%;
 	border-radius: 5px;
 	box-shadow:0px 0px 5px 0px #cccccc;
 	overflow: hidden;
@@ -777,20 +819,35 @@ footer{
 	line-height: 50px;
 	color: var(--color-text);
 }
+.log_warning_word{
+	color: var(--color-warning);
+	padding:20px 0px 0px 0px;
+}
 .log_table{
-	padding:30px 20px 20px 20px;
+	padding:20px;
 }
 .log_bottom{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	padding:20px;
+	padding:10px 20px 20px 20px;
 }
 .log_btn{
 	background-color: var(--color-main);
 	color: var(--color-text);
 	padding:5px 20px;
+	text-align: center;
+}
+
+.logan_btn{
+	line-height:50px;
+	text-align:center;
+	color: var(--color-text);
+}
+.logan_btn:hover{
+	color:var(--color-text);
+	text-decoration: none;
 }
 .log_btn:hover{
 	box-shadow:0px 0px 5px 0px var(--color-main);
@@ -878,10 +935,16 @@ td{
 }
 .send-btn{
 	width:100%;
+	background-color: var(--color-main);
+	color: var(--color-text);
+}
+.send-btn:hover{
+	background-color: var(--color-btn);
 }
 .input-sec{
 	height:100vh;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
