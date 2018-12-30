@@ -980,9 +980,9 @@ td{
 		display: flex;
 		justify-content: space-between;
 	}
-	.logo{
-		padding-top: 10px;
-		padding-bottom: 10px;
+	.navbar-logo{
+		height:50px;
+		width:150px;
 	}
 	.menu{
 		flex-direction: row;
