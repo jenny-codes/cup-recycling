@@ -4,20 +4,24 @@
 
 
 {% block content %}
+  <div class="col-md-8">
   {% if checked_out_records %}
-  <div class="col-md-6">
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col">借出店家</th>
           <th scope="col">借出日期</th>
+          <th scope="col">借出店家</th>
+          <th scope="col">歸還日期</th>
+          <th scope="col">歸還店家</th>
         </tr>
       </thead>
       {% for record in checked_out_records %} 
       <tbody>
         <tr>
-          <td>{{ record.prev_carrier.name }}</td>
-          <td>{{ record.timestamp|date:"Y / m / d" }}</td>
+          <td>{{ record.loaned_out_at|date:"Y / m / d" }}</td>
+          <td>{{ record.source.name }}</td>
+          <td>{% if record.destination %} {{ record.returned_at|date:"Y / m / d" }} {% endif %}</td>
+          <td>{{ record.destination.name }}</td>
         </tr>
       </tbody>
       {% endfor %}
@@ -25,28 +29,6 @@
     {% else %}
       <p>你還沒有租借杯子紀錄</p>
     {% endif %}      
-  </div>
-  <div class="col-md-6">
-    {% if returned_records %}
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">歸還店家</th>
-          <th scope="col">歸還日期</th>
-        </tr>
-      </thead>
-      {% for record in returned_records %} 
-      <tbody>
-        <tr>
-          <td>{{ record.prev_carrier.name }}</td>
-          <td>{{ record.timestamp|date:"Y / m / d" }}</td>
-        </tr>
-      </tbody>
-      {% endfor %}
-    </table>
-    {% else %}
-      <p>你還沒有歸還杯子紀錄</p>
-    {% endif %}  
   </div>
 
   <div class="col-md-12"> 

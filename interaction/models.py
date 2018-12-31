@@ -4,17 +4,17 @@ from django.contrib.auth.models import AbstractUser, Group
 from datetime import date
 import re
 
-# TODO: add group
-
 """ Manager Classes """
-class CupInAdminManager(models.Manager):
-    def get_queryset(self):
-        return super(CupInAdminManager, self).get_queryset().filter(owner_type='a') 
+class CupManager(models.Manager):
+    def batch_create(self, carrier, size):
+        for i in range(size):
+            cup = self.create(carrier_type='b', carrier=carrier)
+            cup.save()
+        return 
 
 class Cup(models.Model):
     # TODO: RFID 
-    objects = models.Manager()
-    in_admin = CupInAdminManager()
+    objects = CupManager()
 
     LOAN_STATUS = (
         ('o', 'On loan'),
@@ -25,7 +25,7 @@ class Cup(models.Model):
     status = models.CharField(
         max_length=1,
         choices=LOAN_STATUS,
-        default='r',
+        default='a',
         help_text='Cup availability',
     )
     CARRIER_TYPES = (
@@ -36,15 +36,6 @@ class Cup(models.Model):
     )
     carrier_type = models.CharField(max_length=1, choices = CARRIER_TYPES, default='a')
     carrier = models.ForeignKey('CupUser', on_delete=models.SET_NULL, blank=True, null=True)
-
-    # TODO: add to the action when user checks out a cup
-    checked_out_date = models.DateField(null=True, blank=True)
-
-    @property
-    def duration(self):
-        if self.checked_out_date :
-            return (date.today() - self.checked_out_date).days
-        return None
 
     def __str__(self):
         return str(self.pk)
@@ -77,12 +68,27 @@ class CupUser(AbstractUser):
 
 class Record(models.Model):
     cup = models.ForeignKey('Cup', on_delete=models.SET_NULL, blank=True, null=True)
-    timestamp = models.DateField(auto_now_add=True)
-    prev_carrier = models.ForeignKey('CupUser', related_name='prev_carrier', on_delete=models.SET_NULL, blank=True, null=True) 
-    current_carrier = models.ForeignKey('CupUser', related_name='current_carrier', on_delete=models.SET_NULL, blank=True, null=True) 
-
+    user = models.ForeignKey('CupUser', related_name='user', on_delete=models.SET_NULL, blank=True, null=True) 
+    source = models.ForeignKey('CupUser', related_name='source', on_delete=models.SET_NULL, blank=True, null=True) 
+    destination = models.ForeignKey('CupUser', related_name='destination', on_delete=models.SET_NULL, blank=True, null=True)
+    returned_at = models.DateTimeField(auto_now=True)        # record 被更新的時間就是杯子被還回來的時間
+    loaned_out_at = models.DateTimeField(auto_now_add=True)  # 杯子被租出去的時間就是 record 建立的時間
+    
     def __str__(self):
-        return str("from %s to %s" % prev_carrier.name, current_carrier.name)
+        if self.source and self.user:
+            return ("from %s to %s" % (self.source.name, self.user.name))
+        else:
+            return self.id
+
+    @property
+    def duration(self):
+        """ returns the duration of this renting period """
+        if self.loaned_out_at and self.returned_at:
+            return (self.returned_at - self.loaned_out_at).days
+        return None
+
+    class meta:
+        ordering = ['-loaned_out_at']
 
 
 

@@ -38,12 +38,12 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='record',
-            name='current_carrier',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='current_carrier', to=settings.AUTH_USER_MODEL),
+            name='user',
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='user', to=settings.AUTH_USER_MODEL),
         ),
         migrations.AddField(
             model_name='record',
-            name='prev_carrier',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='prev_carrier', to=settings.AUTH_USER_MODEL),
+            name='source',
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='source', to=settings.AUTH_USER_MODEL),
         ),
     ]

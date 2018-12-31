@@ -5,14 +5,6 @@ from .models import CupUser, Cup, Group
 from IPython import embed
 
 class CustomerSignUpForm(UserCreationForm):
-    # interests = forms.ModelMultipleChoiceField(
-    #     queryset=Subject.objects.all(),
-    #     widget=forms.CheckboxSelectMultiple,
-    #     required=True
-    # )
-    email = forms.EmailField(label = "Email")
-    phone_number = forms.CharField(label="Phone number")
-
     class Meta(UserCreationForm.Meta):
         model = CupUser
         fields = ('username', 'first_name', 'last_name', 'email', 'phone_number')
@@ -43,9 +35,21 @@ class BusinessSignUpForm(UserCreationForm):
             group.user_set.add(user)
         return user
 
+class BusinessRequestCupsForm(forms.Form):
+    cups_needed = forms.IntegerField(label='需要杯子的數量')
+
+class BusinessReceiveCupsForm(forms.Form):
+    cup_received = forms.IntegerField(label='收到杯子的 ID')
+
 # FIX
 class CupUserChangeForm(UserChangeForm):
 
     class Meta:
         model = CupUser
         fields = ('username', 'email')
+
+    # interests = forms.ModelMultipleChoiceField(
+    #     queryset=Subject.objects.all(),
+    #     widget=forms.CheckboxSelectMultiple,
+    #     required=True
+    # )
