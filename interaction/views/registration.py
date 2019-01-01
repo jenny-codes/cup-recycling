@@ -1,5 +1,6 @@
 from interaction.views import * 
 from django.views.generic import CreateView
+from interaction.forms import CustomerSignUpForm, BusinessSignUpForm
 
 class BusinessSignUpView(CreateView):
     model = CupUser
@@ -13,7 +14,7 @@ class BusinessSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('/')
+        return redirect("business-manage-cups")
 
 class CustomerSignUpView(CreateView):
     model = CupUser
@@ -29,4 +30,12 @@ class CustomerSignUpView(CreateView):
         print('form_valid')
         user = form.save()
         login(self.request, user)
-        return redirect('/')
+        return redirect("customer-view-cups")
+
+def login_success(request):
+    if request.user.is_customer:
+        return redirect("customer-view-cups")
+    elif request.user.is_business:
+        return redirect("business-manage-cups")
+    else:
+        return redirect("/")
