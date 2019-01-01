@@ -64,10 +64,10 @@ $( "#q2-2" ).click(function() {
   var n_drinks = $( "#q2-drinks" ).val();
   var height = $( "#q2-height" ).val();
   $( ".a3-1" ).text((n_drinks*780/height).toPrecision(2));
-  $( ".a3-2" ).text(n_drinks*39.9.toPrecision(2));
-  $( ".a3-3" ).text(n_drinks*13.3.toPrecision(2));
-  $( ".a3-4" ).text(n_drinks*1.82.toPrecision(2));
-  $( ".a3-5" ).text(n_drinks*1.37.toPrecision(2));
+  $( ".a3-2" ).text((n_drinks*39.9).toPrecision(2));
+  $( ".a3-3" ).text((n_drinks*13.3).toPrecision(2));
+  $( ".a3-4" ).text((n_drinks*1.82).toPrecision(2));
+  $( ".a3-5" ).text((n_drinks*1.37).toPrecision(2));
 
   changeFrame($( this ));
 });
