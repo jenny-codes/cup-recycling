@@ -1,0 +1,1 @@
+web: gunicorn cuprecycling.wsgi --log-file -

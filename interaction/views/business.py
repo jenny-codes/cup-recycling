@@ -43,11 +43,6 @@ def request_cups(request):
             Cup.objects.batch_create(carrier=request.user, size=n_cups)  
             return HttpResponseRedirect(reverse('business-manage-cups'))          
 
-    # if a GET (or any other method) we'll create a blank form
-    # else:
-    #     form = BusinessRequestCupsForm()
-    #     return render(request, 'business_request_cups.html', {'form': form})
-
 @business_required
 def receive_cups(request):
     """ when busiess receives a cup, update Record & Cup models """
@@ -62,8 +57,3 @@ def receive_cups(request):
                 if record.count() != 0:
                     record.update(destination = request.user) 
             return HttpResponseRedirect(reverse('business-manage-cups'))          
-
-    # if a GET (or any other method) we'll create a blank form
-    # else:
-    #     form = BusinessReceiveCupsForm()
-    #     return render(request, 'business_receive_cups.html', {'form': form})
