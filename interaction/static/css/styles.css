@@ -35,11 +35,8 @@ html {
 		position: relative;
 		height:50px;
 		z-index: 100;
-		left:0;
-		right:0;
 		background-color:var(--color-main);
 		box-shadow: 0px 0px 3px var(--color-shadow);
-		transition: 0.5s;
 		padding:0px 10px ;
 	}
 	.navbar_fixed{
@@ -52,14 +49,9 @@ html {
 		flex-direction: column;
 		justify-content: center;
 	}
-	.logo{
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		z-index: 101;
-		font-weight:500;
-		font-size: 20px;
-		color:var(--color-text);
+	.navbar-logo{
+		height:50px;
+		width:150px;
 	}
 	.logo:hover{
 		text-decoration: none;
@@ -101,6 +93,8 @@ html {
 			display: block;
 			color:var(--color-text);
 			font-size:20px;
+			line-height: 34px;
+			padding:10px;
 			font-weight:500;
 			text-decoration: none;
 			transition: all 0.3s;
@@ -436,15 +430,15 @@ button{
 }
 .game_img1{
 	border-radius: 31% 69% 20% 80% / 57% 27% 73% 43% ;
-	background:var(--color-main) url(../asset/you.png) center/contain no-repeat;
+	background:var(--color-light) url(../asset/you.png) center/contain no-repeat;
 }
 .game_img2{
 	border-radius: 67% 33% 64% 36% / 57% 27% 73% 43% ;
-	background:var(--color-main) url(../asset/water.png) center/contain no-repeat;
+	background:var(--color-light) url(../asset/water.png) center/contain no-repeat;
 }
 .game_img3{
 	border-radius: 21% 79% 22% 78% / 68% 42% 58% 32% ;
-	background:var(--color-main) url(../asset/co2.png) center/contain no-repeat;
+	background:var(--color-light) url(../asset/co2.png) center/contain no-repeat;
 }
 .a3-1, .a3-2, .a3-3, .a3-4, .a3-5{
 	color: var(--color-warning);
@@ -759,6 +753,7 @@ footer{
 
 /* go-to-top button------------------------------------start */
 #top_button{
+	display: none;
 	position: fixed;
 	bottom: 10px;
 	right:10px;
@@ -767,7 +762,7 @@ footer{
 	border-radius: 50%;
 	border: none;
 	outline: none;
-	background-color: var(--color-btn);
+	background-color: var(--color-main);
 	box-shadow: 0px 0px 5px var(--color-shadow);
 }
 .top_button::before, .top_button::after{
@@ -979,10 +974,6 @@ td{
 	.nav-toggler{
 		display: flex;
 		justify-content: space-between;
-	}
-	.navbar-logo{
-		height:50px;
-		width:150px;
 	}
 	.menu{
 		flex-direction: row;

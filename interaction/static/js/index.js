@@ -1,41 +1,50 @@
-var navbar = document.querySelector(".navbar");
-var navbar_height = navbar.offsetHeight;
+// 畫面滑動會發生的事情
+window.onscroll = function(){
+  scrollNav();
+  toTopShow();
+}
 
-function myFunction() {
-  if (window.pageYOffset >= navbar_height) {
-    navbar.classList.add("navbar_fixed");
-  } else {
-    navbar.classList.remove("navbar_fixed");
+// 畫面滑動後navbar固定
+// var prevScrollpos = window.pageYOffset;
+// function scrollNav() {
+//   var currentScrollPos = window.pageYOffset;
+//     if (prevScrollpos > currentScrollPos) {
+//       document.getElementsByClassName("navbar").style.top = "0";
+//     } else {
+//       document.getElementsByClassName("navbar").style.top = "-50px";
+//     }
+//     prevScrollpos = currentScrollPos;
+// }
+var offset = window.pageYOffset;
+function scrollNav(){
+  if (offset>100){
+    document.querySelector('.navbar').add('navbar_fixed');
   }
 }
 
+// 手機版點選漢堡後，menu出現
 document.querySelector('#nav-toggle').addEventListener('click',function(){
   document.querySelector('.menu').classList.toggle('toggle_menu')
 })
 
-document.querySelector('#navbarDropdown').addEventListener('click',function(){
+// navbar下拉選單出現，並且可點選
+document.querySelector('#navbarDropdown').addEventListener('mouseover',function(){
   document.querySelector('.dropdown-menu').classList.toggle('show');
   var dropdownItem = document.querySelectorAll('.dropdown-item');
   for(i=0;i<dropdownItem.length;i++){
     dropdownItem[i].classList.toggle('click');
+    // pointEvent = none/auto;
   }
 })
 
-
-window.onscroll = function(){
-  scrollDown();
-  myFunction()};
-
 var top_button = document.getElementById("top_button");
-
-function scrollDown(){
+function toTopShow(){
   if (document.documentElement.scrollTop > 50){
     top_button.style.display = "block";
     } else{
     top_button.style.display = "none";
     }
 }
-
 function toTop(){
   document.documentElement.scrollTop = 0;
 }
