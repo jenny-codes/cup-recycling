@@ -40,6 +40,7 @@ function toTop(){
   document.documentElement.scrollTop = 0;
 }
 
+// 遊戲互動區
 $(document).ready(function() {
   $(".game-slide:first").fadeIn()
 });
@@ -47,7 +48,6 @@ $(document).ready(function() {
 function changeFrame(item){
   var frame = item.closest( ".game-slide" );
   if ( frame.next().length != 0 ){
-    // frame.slideUp();
     frame.hide()
     frame.next().slideDown();
   } else{  
@@ -55,18 +55,19 @@ function changeFrame(item){
   }
 };
 
-// 遊戲互動區
-$( "#q1-1, #q1-2" ).click(function() {
+$( "#q1-1, #q1-2, #q2" ).click(function() {
   changeFrame($( this ));
 });
 
-$( "#q2" ).click(function() {
+// 選身高與每週杯數
+$( "#q2-2" ).click(function() {
   var n_drinks = $( "#q2-drinks" ).val();
-  $( ".a3-1" ).text(n_drinks*3);
-  $( ".a3-2" ).text(n_drinks*3);
-  $( ".a3-3" ).text(n_drinks*3);
-  $( ".a3-4" ).text(n_drinks*3);
-  $( ".a3-5" ).text(n_drinks*3);
+  var height = $( "#q2-height" ).val();
+  $( ".a3-1" ).text((n_drinks*780/height).toPrecision(2));
+  $( ".a3-2" ).text(n_drinks*39.9.toPrecision(2));
+  $( ".a3-3" ).text(n_drinks*13.3.toPrecision(2));
+  $( ".a3-4" ).text(n_drinks*1.82.toPrecision(2));
+  $( ".a3-5" ).text(n_drinks*1.37.toPrecision(2));
 
   changeFrame($( this ));
 });
