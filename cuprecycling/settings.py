@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '5f_i5(cc^7)%vcv20en*i5r1cskccb
 # DEBUG = True
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bevereusage.herokuapp.com','127.0.0.1']
 
 
 INSTALLED_APPS = [
