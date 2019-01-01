@@ -1,6 +1,6 @@
 from interaction.views import * 
 from django.views.generic import CreateView
-from interaction.forms import CustomerSignUpForm, BusinessSignUpForm
+from interaction.forms.registration_forms import CustomerSignUpForm, BusinessSignUpForm
 
 class BusinessSignUpView(CreateView):
     model = CupUser
