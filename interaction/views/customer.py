@@ -1,5 +1,5 @@
 from interaction.views import * 
-from interaction.forms import CustomerSignUpForm
+from interaction.forms.registration_forms import CustomerSignUpForm
 
 class CustomerRecordListView(LoginRequiredMixin, ListView):
     """列出使用者的租借杯紀錄"""

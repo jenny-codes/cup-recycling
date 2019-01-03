@@ -51,32 +51,14 @@
           <h2 class="col-12 game_title">
             你每年相當於消耗了...
           </h2>
-          <div class="row game_outcome">
-            <div class="col-sm-12 col-md-4 game_small_sec">
-                  <div class="game_img game_img1"></div>
-                  <p><span class="a3-1"></span> 個你</p>
-              <p>一樣高的免洗杯垃圾</p>
-            </div>
-            <div class="col-sm-12 col-md-4  game_small_sec">
-                  <div class="game_img game_img2"></div>
-                  <p><span class="a3-2"></span> kg的水</p>
-              <p>相當於可以洗 <span class="a3-3"></span> 次澡</p>
-            </div>
-            <div class="col-sm-12 col-md-4  game_small_sec">
-                  <div class="game_img game_img3"></div>
-                  <p><span class="a3-4"></span> kg排碳</p>
-              <p>相當樹 <span class="a3-5"></span>天的固碳量</p>
-            </div>  
+          {% include "game_stats.html" %}
+          <div class="col-12 game_btn_sec">
+            <button class="col-sm-10 col-md-5 game-btn game-btn2" id="q3" type="submit" value="怎麼說？">怎麼說？</button>
           </div>
-          <p class="col-12 game_highlight_word">
-            如果你帶環保杯，能帶來不小改變
-          </p>
-        </div>
-        <div class="col-12 game_btn_sec">
-          <button class="col-sm-10 col-md-5 game-btn game-btn2" id="q3" type="submit" value="怎麼說？">怎麼說？</button>
         </div>
       </div>
       <div class="col-12 col-lg-10 game-slide">
+<<<<<<< HEAD
           <h1>小遊戲</h1>
           <div class="col-12 game_content">
             <h2 class="col-12 game_title">
@@ -104,8 +86,24 @@
               滴水穿石，</br>許多的努力往往不是馬上見效，</br>
               但如果你持續更久的時間呢？
             </p>
+=======
+        <h1>小遊戲</h1>
+        <div class="col-12 game_content">
+          <h2 class="col-12 game_title">
+            你每年相當於消耗了...
+          </h2>
+          {% include "game_stats.html" %}
+          <div class="col-12 game_bar_sec">
+            <p class="col-12 hint_word">（請移動圈圈）</p>
+            <input type="range" min="1" max="100" value="50" class="rangebar" id="slider">
+>>>>>>> d13dbb8c94e8a7ced26f3b418b4b06b9bf77dac9
           </div>
+          <p class="col-12 pt-5 game_highlight_word">
+            滴水穿石，許多的努力往往不是馬上見效，</br>
+            但如果你持續更久的時間呢？
+          </p>
         </div>
+      </div>
     </div>
   </div>
   <div class="col-12 sec_plan section" id="sec_plan">
@@ -303,4 +301,6 @@
     <a class="footer_fb_icon" href="https://www.facebook.com/NTUSA.Sustainability/"></a>
     <div class="footer_text pt-4">All right reserved by BevereUsage</div>
   </footer>
+  {% load static %}
+  <script src="{% static 'js/index.js' %}"></script>
 {% endblock %}

@@ -1,5 +1,5 @@
 from interaction.views import * 
-from interaction.forms import BusinessRequestCupsForm, BusinessReceiveCupsForm, BusinessAssignCupsForm
+from interaction.forms.business_forms import BusinessRequestCupsForm, BusinessReceiveCupsForm, BusinessAssignCupsForm
 
 class BusinessCupListView(LoginRequiredMixin, ListView):
     """列出店家的租借杯紀錄，可以跟 admin 要求杯子、將杯子拿給顧客、拿回杯子"""
