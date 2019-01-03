@@ -26,20 +26,21 @@ html {
 .container-fluid{
 	padding:0;
 }
+.padding_top{
+	padding-top:80px;
+}
 
 /* navigation--------------------------------------------start */
 	.navbar{
 		display: flex;
 		flex-direction: row nowrap;
 		justify-content: space-between;
-		position: relative;
+		position: fixed;
+		top:0;
 		height:50px;
 		z-index: 100;
-		left:0;
-		right:0;
 		background-color:var(--color-main);
 		box-shadow: 0px 0px 3px var(--color-shadow);
-		transition: 0.5s;
 		padding:0px 10px ;
 	}
 	.navbar_fixed{
@@ -52,14 +53,9 @@ html {
 		flex-direction: column;
 		justify-content: center;
 	}
-	.logo{
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		z-index: 101;
-		font-weight:500;
-		font-size: 20px;
-		color:var(--color-text);
+	.navbar-logo{
+		height:50px;
+		width:150px;
 	}
 	.logo:hover{
 		text-decoration: none;
@@ -101,10 +97,16 @@ html {
 			display: block;
 			color:var(--color-text);
 			font-size:20px;
+			line-height: 34px;
+			padding:10px;
 			font-weight:500;
 			text-decoration: none;
 			transition: all 0.3s;
 			height:100%;
+			text-align: center;
+			-webkit-flex: 1;  /* Safari 6.1+ */
+			-ms-flex: 1;  /* IE 10 */  
+			flex: 1;
 		}
 		.nav-link:hover{
 			color: var(--color-text);
@@ -210,6 +212,7 @@ html {
 /* 共同設定-------------------------------------start */
 .section{
 	display: flex;
+	-webkit-display:flex;
 	flex-direction: column;
 	align-items: center;
 	padding:50px 0px;
@@ -246,6 +249,7 @@ p{
 }
 .img_block-item{
 	display: flex;
+	-webkit-display:flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center; 
@@ -286,6 +290,7 @@ select{
 }
 .page-links{
 	display: flex;
+	-webkit-display:flex;
 	justify-content: center;
 	flex-direction: row;
 	padding:20px;
@@ -301,6 +306,7 @@ select{
 }
 .modal-dialog{
 	display: flex;
+	-webkit-display:flex;
 	justify-content: center;
 	align-items:center;
 }
@@ -337,13 +343,16 @@ select{
 
 /* 小遊戲區-------------------------------------start */
 .sec_game{
-	margin:20px 50px;
+	/* margin:20px 50px; */
 	display: flex;
+	-webkit-display:flex;
 	justify-content: center;
-	height:100%;
 	padding:20px;
 }
 .game-slide{
+	-webkit-flex: 1;  /* Safari 6.1+ */
+  -ms-flex: 1;  /* IE 10 */  
+  flex: 1;
 	background:var(--color-second);
 	border-radius: 16% 84% 34% 66% / 76% 22% 78% 24%;
 	padding:50px 0px;
@@ -371,6 +380,7 @@ select{
 }
 .game_btn_sec{
 	display: flex;
+	-webkit-display:flex;
 	flex-direction: row;
 	justify-content: center;
 }
@@ -415,6 +425,7 @@ button{
 }
 .game_small_sec{
 	display: flex;
+	-webkit-display:flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -426,6 +437,7 @@ button{
 }
 .game_small_row{
 	display: flex;
+	-webkit-display:flex;
 	flex-direction:row;
 	align-items: flex-end;
 }
@@ -436,15 +448,36 @@ button{
 }
 .game_img1{
 	border-radius: 31% 69% 20% 80% / 57% 27% 73% 43% ;
-	background:var(--color-main) url(../asset/you.png) center/contain no-repeat;
+	background-color: var(--color-light);
+	background-image: url(../asset/you.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	-o-background-size: contain;
+	-moz-background-size: contain;
+	-webkit-background-size: contain;
+	/* background:var(--color-light) url(../asset/you.png) center/contain no-repeat; */
 }
 .game_img2{
 	border-radius: 67% 33% 64% 36% / 57% 27% 73% 43% ;
-	background:var(--color-main) url(../asset/water.png) center/contain no-repeat;
+	background-color: var(--color-light);
+	background-image: url(../asset/water.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	-o-background-size: contain;
+	-moz-background-size: contain;
+	-webkit-background-size: contain;
+	/* background:var(--color-light) url(../asset/water.png) center/contain no-repeat; */
 }
 .game_img3{
 	border-radius: 21% 79% 22% 78% / 68% 42% 58% 32% ;
-	background:var(--color-main) url(../asset/co2.png) center/contain no-repeat;
+	background-color: var(--color-light);
+	background-image: url(../asset/co2.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	-o-background-size: contain;
+	-moz-background-size: contain;
+	-webkit-background-size: contain;
+	/* background:var(--color-light) url(../asset/co2.png) center/contain no-repeat; */
 }
 .a3-1, .a3-2, .a3-3, .a3-4, .a3-5{
 	color: var(--color-warning);
@@ -456,6 +489,7 @@ button{
 }
 .game_bar_sec{
 	display: flex;
+	-webkit-display:flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -501,6 +535,7 @@ button{
 /* Slides */
 .slideshow-container{
 	display: flex;
+	-webkit-display:flex;
 	justify-content: center;
 	align-content: center;
 }
@@ -514,6 +549,7 @@ button{
 /* 計畫介紹-------------------------------------start */
 .link_dots_sec{
 	display: flex;
+	-webkit-display:flex;
 	justify-content: center;
 }
 .switch_el{
@@ -573,6 +609,7 @@ button{
 }
 .usage_block{
 	display: flex;
+	-webkit-display:flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
@@ -580,16 +617,19 @@ button{
 }
 .process_sec{
 	display: flex;
+	-webkit-display:flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: center;
 }
 .process_row{
 	display: flex;
+	-webkit-display:flex;
 	flex-direction: column;
 }
 .process_card{
 	display: flex;
+	-webkit-display:flex;
 	flex-direction: column;
 	align-items: center;
 	position: relative;
@@ -603,6 +643,7 @@ button{
 }
 .process_head{
 	display: flex;
+	-webkit-display:flex;
 	justify-content: center;
 	align-items: center;
 	height:50px;
@@ -612,6 +653,7 @@ button{
 }
 .process_img_sec{
 	display: flex;
+	-webkit-display:flex;
 	justify-content: center;
 	align-items: center;
 	height:200px;
@@ -642,6 +684,7 @@ button{
 }
 .process_text_sec{
 	display: flex;
+	-webkit-display:flex;
 	justify-content: center;
 	align-items: center;
 	height:50px;
@@ -653,6 +696,7 @@ button{
 }
 .usage_block3{
 	display: flex;
+	-webkit-display:flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items:center;
@@ -695,6 +739,7 @@ button{
 }
 .bg-circle{
 	display: flex;
+	-webkit-display:flex;
 	justify-content: center;
 	align-items: center;
 	width:200px;
@@ -735,6 +780,7 @@ button{
 footer{
 	z-index: -1;
 	display: flex;
+	-webkit-display:flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -759,6 +805,7 @@ footer{
 
 /* go-to-top button------------------------------------start */
 #top_button{
+	display: none;
 	position: fixed;
 	bottom: 10px;
 	right:10px;
@@ -767,7 +814,7 @@ footer{
 	border-radius: 50%;
 	border: none;
 	outline: none;
-	background-color: var(--color-btn);
+	background-color: var(--color-main);
 	box-shadow: 0px 0px 5px var(--color-shadow);
 }
 .top_button::before, .top_button::after{
@@ -801,10 +848,10 @@ footer{
 .log_card{
 	position: relative;
 	display: flex;
+	-webkit-display:flex;
 	flex-direction: column;
 	justify-content: space-between;
 	margin-top:25vh;
-	height:100%;
 	border-radius: 5px;
 	box-shadow:0px 0px 5px 0px #cccccc;
 	overflow: hidden;
@@ -828,6 +875,7 @@ footer{
 }
 .log_bottom{
 	display: flex;
+	-webkit-display:flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
@@ -865,6 +913,7 @@ input{
 .table_sec{
 	padding-top:30px;
 	display: flex;
+	-webkit-display:flex;
 	justify-content: center;
 } 
 .table{
@@ -907,6 +956,7 @@ input{
 	margin:5px 0px;
 	color: var(--color-text);
 	display: flex;
+	-webkit-display:flex;
 	justify-content: center;
 	align-items: center;
 }
@@ -931,6 +981,7 @@ td{
 }
 .btn-area{
 	display: flex;
+	-webkit-display:flex;
 	justify-content: center;
 }
 .send-btn{
@@ -944,18 +995,20 @@ td{
 .input-sec{
 	height:100vh;
 	display: flex;
+	-webkit-display:flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 .input-area{
 	display: flex;
+	-webkit-display:flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 }
 .input-area label{
-	padding:20px;
+	padding:18px;
 	font-size:20px;
 	font-weight: 500;
 }
@@ -978,11 +1031,8 @@ td{
 	}
 	.nav-toggler{
 		display: flex;
+		-webkit-display:flex;
 		justify-content: space-between;
-	}
-	.navbar-logo{
-		height:50px;
-		width:150px;
 	}
 	.menu{
 		flex-direction: row;
@@ -997,14 +1047,16 @@ td{
 	}
 	.nav-list{
 		display: flex;
+		-webkit-display:flex;
 		flex-direction: row;
+		justify-content: center;
 		height:100% !important;
 	}
 	.nav-item{
 		padding:0px 20px;
 	}
 	.nav-link{
-		font-size: 18px;
+		font-size: 20px;
 	}
 	.plan_img_sec{
 		width:600px;
