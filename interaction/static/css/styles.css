@@ -26,10 +26,19 @@ html {
 .container-fluid{
 	padding:0;
 }
-.padding_top{
-	padding-top:80px;
+.animation{
+	z-index: 200;
+	position: fixed;
+	width:100vw;
+	height:100vh;
+	background: var(--color-text) url(../asset/start_animation.gif) center/contain no-repeat;
+	animation: disappear 3s both;
 }
-
+@keyframes disappear{
+	0%{opacity: 1;}
+	70%{opacity: 1;}
+	100%{opacity: 0; pointer-events: none;}
+}
 /* navigation--------------------------------------------start */
 	.navbar{
 		display: flex;
@@ -53,9 +62,13 @@ html {
 		flex-direction: column;
 		justify-content: center;
 	}
+	.logo{
+		z-index:101;
+		margin:0 auto;
+	}
 	.navbar-logo{
-		height:50px;
-		width:150px;
+		height:40px;
+		width:130px;
 	}
 	.logo:hover{
 		text-decoration: none;
@@ -96,7 +109,7 @@ html {
 		.nav-link{
 			display: block;
 			color:var(--color-text);
-			font-size:20px;
+			font-size:16px;
 			line-height: 34px;
 			padding:10px;
 			font-weight:500;
@@ -166,26 +179,26 @@ html {
 			display: block;
 			position: relative;
 			z-index: 1000;
-			width:50px;
-			height:50px;
+			width:40px;
+			height:40px;
 		}
 		.ham-bar--origin{
 			position: absolute;
-			top:50%;
+			top:55%;
 			left:50%;
 		}
 		.ham-bar{
-			height:3px;
-			width:30px;
+			height:2px;
+			width:20px;
 			background-color: #fff;
-			margin:-2px 0 0 -15px;
+			margin:-3px 0 1px -10px;
 			transition: 0.3s;
 		}
 		.ham-bar--top{
-			transform: translateY(-7px);
+			transform: translateY(-6px);
 		}
 		.ham-bar--bottom{
-			transform: translateY(7px);	
+			transform: translateY(6px);	
 		}
 		#nav-toggle{
 			display: none;
@@ -224,12 +237,12 @@ html {
 h1{
 	color: var(--color-main);
 	text-align: center;
-	font-size:30px;
+	font-size:24px;
 	padding:10px 0;
 	width: 100%;
 }
 h2{
-	font-size: 20px;
+	font-size: 16px;
 	text-align: center;
 	background-color: var(--color-second);
 	border-radius: 42% 58% 40% 60% / 59% 35% 65% 41%;
@@ -244,6 +257,7 @@ h3{
 p{
 	text-align: center;
 	font-weight:500;
+	font-size:14px;
 	margin:0;
 	padding-bottom: 20px;
 }
@@ -268,6 +282,7 @@ p{
 	margin:0px 20px;
 	border-radius:42% 58% 40% 60% / 59% 35% 65% 41%;
 	font-weight:500;
+	font-size:14px;
 	color: var(--color-text);
 	background-color: var(--color-main);
 }
@@ -339,23 +354,37 @@ select{
 .modal-body form label{
 	padding:0;
 }
+.padding_top{
+	padding-top:40px;
+}
 /* 共同設定---------------------------------------end */
-
 /* 小遊戲區-------------------------------------start */
 .sec_game{
-	/* margin:20px 50px; */
 	display: flex;
 	-webkit-display:flex;
 	justify-content: center;
 	padding:20px;
 }
 .game-slide{
+	position: relative;
 	-webkit-flex: 1;  /* Safari 6.1+ */
   -ms-flex: 1;  /* IE 10 */  
   flex: 1;
 	background:var(--color-second);
 	border-radius: 16% 84% 34% 66% / 76% 22% 78% 24%;
 	padding:50px 0px;
+}
+.banner{
+	margin:0 auto;
+	height:250px;
+	width:85%;
+	background: url(../asset/1x/banner-el.png) center/contain no-repeat;
+}
+.banner-btn{
+	position: absolute;
+	bottom:30px;
+	left:50%;
+	transform:translateX(-50%);
 }
 .game-slide h2{
 	background: none;
@@ -365,7 +394,7 @@ select{
 }
 .game_start{
 	display: block;
-	height:200px;
+	height:150px;
 	animation: linear shake 1s infinite both;
 }
 @keyframes shake{
@@ -375,8 +404,12 @@ select{
 	75%{transform: rotate(0deg);}
 	100%{transform: rotate(-20deg);}
 }
+.game_title{
+	padding:10px;
+}
 .game_intro{
 	font-weight: 500;
+	font-size: 14px;
 }
 .game_btn_sec{
 	display: flex;
@@ -396,6 +429,7 @@ button{
 	margin:0px 20px;
 	border-radius:42% 58% 40% 60% / 59% 35% 65% 41%;
 	font-weight:500;
+	font-size:14px;
 	color: var(--color-text);
 	background-color: var(--color-main);
 }
@@ -403,23 +437,23 @@ button{
 	background-color: var(--color-btn);
 }
 .game_big_word{
-	font-size:20px;
+	font-size:14px;
 	font-weight:500;
 }
 .hint_word{
 	color: var(--color-warning);
 	font-weight:500;
-	padding:20px;
+	padding:12px;
 }
 .game_highlight_word{
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: 500;
-	padding:20px;
+	padding:0px 20px 20px 20px;
 	color: var(--color-btn);
 }
 .game_big_word input{
 	text-align: center;
-	width:100px;
+	width:70px;
 	color:var(--color-main);
 	margin:0px 10px;
 }
@@ -497,7 +531,8 @@ button{
 
 .rangebar {
   -webkit-appearance: none;
-  width: 300px;
+	min-width: 200px;
+	width:50%;
   height: 10px;
   border-radius: 5px;
   background: #d3d3d3;
@@ -576,7 +611,7 @@ button{
 	position: absolute;
 	flex-basis: 100%;
 	max-width: 500px;
-	height:300px;
+	height:250px;
 }
 .plan_img1{
 	background:url(../asset/1x/air-poll.png) center/cover no-repeat;
@@ -621,6 +656,9 @@ button{
 	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: center;
+}
+.process_text{
+	line-height:1.5;
 }
 .process_row{
 	display: flex;
@@ -778,7 +816,6 @@ button{
 
 /* footer------------------------------------------------start */
 footer{
-	z-index: -1;
 	display: flex;
 	-webkit-display:flex;
 	flex-direction: column;
@@ -795,6 +832,7 @@ footer{
 	color: var(--color-shadow);
 	font-weight:500;
 	height:40px;
+	font-size: 14px;
 }
 .footer_fb_icon{
 	width:40px;
@@ -805,6 +843,7 @@ footer{
 
 /* go-to-top button------------------------------------start */
 #top_button{
+	z-index:100;
 	display: none;
 	position: fixed;
 	bottom: 10px;
@@ -1021,10 +1060,32 @@ td{
 	width:260px;
 }
 /* 公司後台 */
-
-@media only screen and (min-width:650px){
+@media only screen and (min-width:400px){
+	.banner{
+		position: relative;
+		width:100%;
+		max-width:500px;
+		background: url(../asset/1x/banner-pc-el.png) center/contain no-repeat;
+	}
+}
+@media (min-width:650px){
+	h1{
+		font-size: 26px;
+	}
+	h2{
+		font-size:18px;
+	}
+	h3{
+		font-size:18px;
+	}
+	p{
+		font-size:14px;
+	}
+	.footer_text{
+		font-size: 16px;
+	}
 	.logo{
-		z-index: 1;
+		margin:auto 0;
 	}
 	.ham{
 		display: none;
@@ -1055,14 +1116,11 @@ td{
 	.nav-item{
 		padding:0px 20px;
 	}
-	.nav-link{
-		font-size: 20px;
-	}
 	.plan_img_sec{
 		width:600px;
 	}
 	.plan_img{
-		flex-basis: 50%;
+		height:300px;
 	}
 	.img_block-item{
 		flex-direction: column; 
@@ -1090,6 +1148,7 @@ td{
 	}
 	.dropdown-item{
 		color:var(--color-text);
+		font-size:16px;
 	}
 	.menu{
 		background-color: transparent;
@@ -1110,5 +1169,17 @@ td{
 	}
 	.sec_game{
 		padding:20px 50px;
+	}
+	.game_big_word{
+		font-size: 16px;
+	}
+	.game_start{
+		height:200px;
+	}
+	.hint_word{
+		font-size:14px;
+	}
+	.game_big_word input{
+		width: 100px;
 	}
 }
