@@ -43,6 +43,12 @@ function toTop(){
   document.documentElement.scrollTop = 0;
 }
 
+// gif
+function gifFunc() {
+  var gif = document.querySelector('.animation');
+  setTimeout(function(){ gif.add('disappear');}, 1000);
+}
+
 // 遊戲互動區
 $(document).ready(function() {
   $(".game-slide:first").fadeIn();

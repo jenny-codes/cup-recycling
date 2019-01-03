@@ -1,10 +1,12 @@
 {% extends "base_generic.html" %}
-
 {% block content %}
-  <div class="col-12 sec_game section" id="sec_game">
+  <div class="col-12 pt-4 sec_game section" id="sec_game">
     <div class="col-12 slideshow-container">
+      <div class="col-12 game-slide">
+        <div class="banner"></div>
+        <button class="banner-btn game-btn" type="submit" value="玩遊戲">點我玩遊戲</button>
+      </div>
       <div class="col-12 col-lg-10 game-slide">
-        <h1>小遊戲</h1>
         <div class="game_logo bg-circle bg3">
           <img src="../static/asset/1x/logo.png" alt="" class="game_start">
         </div>
@@ -225,7 +227,7 @@
     <div class="block col-12 usage_block">
       <h2>合作店家有哪些？</h2>
       <p>目前推動台大校內飲料店家合作中</p>
-      <iframe class="google_map" width='100%' height='400px' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=台北市新生南路三段90號&z=16&output=embed&t='></iframe>
+      <iframe class="google_map" src="https://www.google.com/maps/d/embed?mid=1ve6uM9Xm5NL0BB7gPTL82HPELzw_4bUF" width="100%" height="400px" frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>
     </div>
   </div>
   <div class="col-12 sec_cooperation section" id="sec_cooperation">
@@ -266,7 +268,7 @@
   </div>
   <button onclick="toTop()" class="top_button" id="top_button" title="go to top"></button>
   <footer class="col-12">
-    <a class="footer_fb_icon" href="https://www.facebook.com"></a>
+    <a class="footer_fb_icon" href="https://www.facebook.com/NTUSA.Sustainability/"></a>
     <div class="footer_text pt-4">All right reserved by BevereUsage</div>
   </footer>
   {% load static %}
