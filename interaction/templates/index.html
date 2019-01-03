@@ -49,32 +49,29 @@
           <h2 class="col-12 game_title">
             你每年相當於消耗了...
           </h2>
-<!--           {% include game_stats.html %} -->
-          <p class="col-12 game_highlight_word">
-            如果你帶環保杯，能帶來不小改變
-          </p>
-        </div>
-        <div class="col-12 game_btn_sec">
-          <button class="col-sm-10 col-md-5 game-btn game-btn2" id="q3" type="submit" value="怎麼說？">怎麼說？</button>
+          {% include "game_stats.html" %}
+          <div class="col-12 game_btn_sec">
+            <button class="col-sm-10 col-md-5 game-btn game-btn2" id="q3" type="submit" value="怎麼說？">怎麼說？</button>
+          </div>
         </div>
       </div>
       <div class="col-12 col-lg-10 game-slide">
-          <h1>小遊戲</h1>
-          <div class="col-12 game_content">
-            <h2 class="col-12 game_title">
-              你每年相當於消耗了...
-            </h2>
-<!--             {% include game_stats.html %} -->
-            <div class="col-12 game_bar_sec">
-              <p class="col-12 hint_word">（請移動圈圈）</p>
-              <input type="range" min="1" max="100" value="50" class="rangebar" id="slider">
-            </div>
-            <p class="col-12 pt-5 game_highlight_word">
-              滴水穿石，許多的努力往往不是馬上見效，</br>
-              但如果你持續更久的時間呢？
-            </p>
+        <h1>小遊戲</h1>
+        <div class="col-12 game_content">
+          <h2 class="col-12 game_title">
+            你每年相當於消耗了...
+          </h2>
+          {% include "game_stats.html" %}
+          <div class="col-12 game_bar_sec">
+            <p class="col-12 hint_word">（請移動圈圈）</p>
+            <input type="range" min="1" max="100" value="50" class="rangebar" id="slider">
           </div>
+          <p class="col-12 pt-5 game_highlight_word">
+            滴水穿石，許多的努力往往不是馬上見效，</br>
+            但如果你持續更久的時間呢？
+          </p>
         </div>
+      </div>
     </div>
   </div>
   <div class="col-12 sec_plan section" id="sec_plan">
@@ -272,4 +269,6 @@
     <a class="footer_fb_icon" href="https://www.facebook.com"></a>
     <div class="footer_text pt-4">All right reserved by BevereUsage</div>
   </footer>
+  {% load static %}
+  <script src="{% static 'js/index.js' %}"></script>
 {% endblock %}

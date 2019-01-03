@@ -4,37 +4,43 @@
 
 
 {% block content %}
-  <div class="table_sec col-md-8">
   {% if checked_out_records %}
-    <table class="table table-hover">
-      <thead class="table-head">
-        <tr>
-          <th scope="col">借出日期</th>
-          <th scope="col">借出店家</th>
-          <th scope="col">歸還日期</th>
-          <th scope="col">歸還店家</th>
-        </tr>
-      </thead>
-      {% for record in checked_out_records %} 
-      <tbody>
-        <tr>
-          <td>{{ record.loaned_out_at|date:"Y / m / d" }}</td>
-          <td>{{ record.source.name }}</td>
-          <td>{% if record.destination %} {{ record.returned_at|date:"Y / m / d" }} {% endif %}</td>
-          <td>{{ record.destination.name }}</td>
-        </tr>
-      </tbody>
-      {% endfor %}
-    </table>
-    {% else %}
-      <h3>歡迎！開始使用環保杯吧！</h3>
-    {% endif %}      
-  </div>
+    <div class="table_sec col-md-8">
+      <table class="table table-hover">
+        <thead class="table-head">
+          <tr>
+            <th scope="col">借出日期</th>
+            <th scope="col">借出店家</th>
+            <th scope="col">歸還日期</th>
+            <th scope="col">歸還店家</th>
+          </tr>
+        </thead>
+        {% for record in checked_out_records %} 
+        <tbody>
+          <tr>
+            <td>{{ record.loaned_out_at|date:"Y / m / d" }}</td>
+            <td>{{ record.source.name }}</td>
+            <td>{% if record.destination %} {{ record.returned_at|date:"Y / m / d" }} {% endif %}</td>
+            <td>{{ record.destination.name }}</td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+    <div class="col-md-12"> 
+      <h3>你總共借出了 <span id='customer-cup-count'>{{ checked_out_records | length }}</span> 個杯子</h3>
+      <h3>這是你為地球省下的資源</h3>
+      {% include "game_stats.html" %}
+    </div>
+
+  {% else %}
+    <h3>歡迎！開始使用環保杯吧！</h3>
+  {% endif %}      
 
   <div class="col-md-12"> 
     <h3>找尋附近的合作店家</h3>
   </div>
-  <div class="col-md-12"> 
-    <h3>你為地球省下了不少資源！</h3>
-  </div>
+
+  {% load static %}
+  <script src="{% static 'js/customer_record.js' %}"></script>
 {% endblock %}
