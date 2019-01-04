@@ -5,6 +5,13 @@
 
 {% block content %}
   {% if checked_out_records %}
+   <h1>會員專區</h1>
+   <div> 
+      <p>你總共借出了 <span id='customer-cup-count'>{{ checked_out_records | length }}</span> 個杯子
+      </br>這是你為地球省下的資源
+      </p>
+      {% include "game_stats.html" %}
+    </div>
     <div class="table_sec col-md-8">
       <table class="table table-hover">
         <thead class="table-head">
@@ -26,11 +33,6 @@
         </tbody>
         {% endfor %}
       </table>
-    </div>
-    <div class="col-md-12"> 
-      <h3>你總共借出了 <span id='customer-cup-count'>{{ checked_out_records | length }}</span> 個杯子</h3>
-      <h3>這是你為地球省下的資源</h3>
-      {% include "game_stats.html" %}
     </div>
 
   {% else %}

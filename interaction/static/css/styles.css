@@ -262,6 +262,11 @@ p{
 	margin:0;
 	padding-bottom: 20px;
 }
+.hint_word{
+	color: var(--color-warning);
+	font-weight:500;
+	padding:12px;
+}
 .img_block-item{
 	display: flex;
 	-webkit-display:flex;
@@ -439,11 +444,6 @@ button{
 .game_big_word{
 	font-size:14px;
 	font-weight:500;
-}
-.hint_word{
-	color: var(--color-warning);
-	font-weight:500;
-	padding:12px;
 }
 .game_highlight_word{
 	font-size: 16px;
@@ -962,6 +962,10 @@ input{
 }
 /* 登入登出--------------------------------------------------------end */
 /* 顧客後台------------------------------------------------------start */
+#customer-cup-count{
+	font-size: 30px;
+	color:var(--color-btn);
+}
 .table_sec{
 	padding-top:30px;
 	display: flex;
@@ -998,6 +1002,7 @@ input{
 }
 .table td{
 	vertical-align: center;
+	font-size:12px;
 }
 .table_id{
 	font-weight:500;
@@ -1017,6 +1022,7 @@ td{
 }
 .table thead th{
 	border:none;
+	font-size:14px;
 }
 .th-id:nth-child(1){
 	width:60px;
@@ -1084,6 +1090,7 @@ td{
 }
 .intro_card{
 	display: flex;
+	flex:auto auto auto;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -1255,5 +1262,9 @@ td{
 	}
 	.signup_section{
 		flex-direction: row;
+	}
+	.table td{
+		vertical-align: center;
+		font-size:14px;
 	}
 }
