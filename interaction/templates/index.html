@@ -2,9 +2,9 @@
 {% block content %}
   <div class="col-12 pt-4 sec_game section" id="sec_game">
     <div class="col-12 slideshow-container">
-      <div class="col-12 game-slide">
+      <div class="game-slide">
         <div class="banner"></div>
-        <button class="banner-btn game-btn" type="submit" value="玩遊戲">點我玩遊戲</button>
+        <button class="banner-btn game-btn" id="q0-1" type="submit" value="玩遊戲">點我玩遊戲</button>
       </div>
       <div class="col-12 col-lg-10 game-slide">
         <div class="game_logo bg-circle bg3">
@@ -12,21 +12,18 @@
         </div>
         <p class="col-12 game_intro">
           台灣蔚為手搖杯王國，對許多人來說，</br>
-          喝飲料就像是呼吸一樣平常的事情，</br>
-          喝飲料使用外帶杯更是理所當然。</br>
+          喝飲料使用外帶杯是理所當然。</br>
           魔鬼藏在細節裡，這理所當然的事情，</br>
-          我們還是想問一句，你不好奇...
+          我們想問一句，你不好奇...
         </p>
         <p class="col-12 game_highlight_word">
           外帶飲料會造成什麼影響嗎？
         </p>
         <div class="col-12 game_btn_sec">
           <button class="game-btn" id="q1-1" type="submit" value="想～">想～</button>
-          <button class="game-btn" id="q1-2" type="submit" value="姑且聽之">姑且聽之</button>
         </div>
       </div>
       <div class="col-12 col-lg-10 game-slide">
-        <h1>小遊戲</h1>
         <p class="col-12 game_big_word">
           我一週用免洗杯喝了<span><input type="number" min=0 name="q2-drinks" id="q2-drinks"></span>  杯飲料
         </p>
@@ -36,7 +33,6 @@
         </div>
       </div>
       <div class="col-12 col-lg-10 game-slide">
-        <h1>小遊戲</h1>
         <p class="col-12 game_big_word">
           我的身高是<span><input type="number" min=130 name="q2-height" id="q2-height"></span>  公分
         </p>
@@ -46,7 +42,6 @@
         </div>
       </div>
       <div class="col-12 col-lg-10 game-slide">
-        <h1>小遊戲</h1>
         <div class="col-12 game_content">
           <h2 class="col-12 game_title">
             你每年相當於消耗了...
@@ -58,48 +53,17 @@
         </div>
       </div>
       <div class="col-12 col-lg-10 game-slide">
-<<<<<<< HEAD
-          <h1>小遊戲</h1>
-          <div class="col-12 game_content">
-            <h2 class="col-12 game_title">
-              您每年相當於消耗了...
-            </h2>
-            <div class="row game_outcome">
-              <div class="col-sm-12 col-md-4 game_small_sec">
-                    <div class="game_img game_img1"></div>
-                    <p><span class="game-scalable a3-1"></span>  個你</br>一樣高的免洗杯垃圾</p>
-              </div>
-              <div class="col-sm-12 col-md-4 game_small_sec">
-                    <div class="game_img game_img2"></div>
-                    <p><span class="game-scalable a3-2"></span>  kg的水</br>相當於可以洗 <span class="game-scalable a3-3"></span> 次澡</p>
-              </div>
-              <div class="col-sm-12 col-md-4 game_small_sec">
-                    <div class="game_img game_img3"></div>
-                    <p><span class="game-scalable a3-4"></span>  kg排碳</br>相當於樹 <span class="game-scalable a3-5"></span> 天的固碳量</p>
-              </div>  
-            </div>
-            <div class="col-12 game_bar_sec">
-              <p class="col-12 hint_word">（請移動圈圈）</p>
-              <input type="range" min="1" max="100" value="50" class="rangebar" id="slider">
-            </div>
-            <p class="col-12 pt-5 game_highlight_word">
-              滴水穿石，</br>許多的努力往往不是馬上見效，</br>
-              但如果你持續更久的時間呢？
-            </p>
-=======
-        <h1>小遊戲</h1>
         <div class="col-12 game_content">
           <h2 class="col-12 game_title">
             你每年相當於消耗了...
           </h2>
           {% include "game_stats.html" %}
           <div class="col-12 game_bar_sec">
-            <p class="col-12 hint_word">（請移動圈圈）</p>
             <input type="range" min="1" max="100" value="50" class="rangebar" id="slider">
->>>>>>> d13dbb8c94e8a7ced26f3b418b4b06b9bf77dac9
+            <p class="col-12 hint_word pt-3">（請移動圈圈）</p>
           </div>
-          <p class="col-12 pt-5 game_highlight_word">
-            滴水穿石，許多的努力往往不是馬上見效，</br>
+          <p class="col-12 game_highlight_word">
+            許多的努力往往不是馬上見效，</br>
             但如果你持續更久的時間呢？
           </p>
         </div>
@@ -299,7 +263,7 @@
   <button onclick="toTop()" class="top_button" id="top_button" title="go to top"></button>
   <footer class="col-12">
     <a class="footer_fb_icon" href="https://www.facebook.com/NTUSA.Sustainability/"></a>
-    <div class="footer_text pt-4">All right reserved by BevereUsage</div>
+    <div class="footer_text pt-4">All right reserved by BeveReusage</div>
   </footer>
   {% load static %}
   <script src="{% static 'js/index.js' %}"></script>

@@ -69,7 +69,7 @@ function calculate(param){
   return Number.parseFloat(n_drinks*param).toFixed(1);
 }
 
-$( "#q1-1, #q1-2, #q2, #q3" ).click(function() {
+$( "#q0-1, #q1-1, #q1-2, #q2, #q3" ).click(function() {
   changeFrame($( this ));
 });
 

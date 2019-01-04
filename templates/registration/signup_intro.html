@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+{% block content %}
+  <div class="signup_section">
+    <div class="intro_card">
+      <div class="card_header">
+        <div class="card_img membership_img"></div>
+        <h3>成為我們的會員</h2>
+      </div>
+      <div class="card_content">
+        <p>
+          在每個我們合作店家買飲料時，僅支付押金50元就能免費租杯子，同時享有2-10元折扣，而飲用完畢歸還給我們時，我們將歸還押金，並為你把杯子清洗乾淨。</br></br>
+          押金制度的存在是為了避免環保杯遺失或毀損，希望使用者能共同維護器具。但我們理解偶爾會發生手邊沒有零錢的困境，為了讓使用者更方便，不用每次掏錢付押金，我們研擬會員制度，讓您在加入會員後可以一次支付長期使用。</br></br>
+          另外，加入會員後，您將能看到每次的借還紀錄，幫助追蹤您的飲用足跡，同時我們幫您計算您使用環保杯省下的水和碳，在會員頁您能從視覺化的資料實際看見您對地球的幫助！
+        </p>
+      </div>
+      <button class="mt-4 btn-style">成為會員</button>
+    </div>
+    <div class="intro_card">
+      <div class="card_header">
+        <div class="card_img store_img"></div>
+        <h3>成為我們的合作店家</h2>
+      </div>
+      <div class="card_content">
+        <p>
+          使用我們的環保杯販售飲料，您不只能省下每個月購買免洗杯的支出，更能接觸到許多新顧客，拓展店家知名度，展現良好永續形象。</br></br>
+          我們將在網站上為您宣傳，並且給予您店家行銷所需的海報及貼紙，智慧追蹤杯子的工具。當您有有任何問題，將悉心為您解決。僅需支付每日50的系統營運費用（研擬中），即能擁有以上服務與福利。</br></br>
+          申請成為合作店家，我們將進一步和您聯絡！
+        </p>
+      </div>
+      <button class="mt-4 btn-style">成為合作店家</button>
+    </div>
+  </div>
+  {% load static %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
