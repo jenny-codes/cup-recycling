@@ -12,7 +12,7 @@ class CustomerSignUpForm(UserCreationForm):
         
     @transaction.atomic
     def save(self, commit=True):
-        user = super().save(commit=False)
+        user = super().save()
         user.is_customer = True
         group = Group.objects.get(name='Customers')
         if commit:
@@ -30,7 +30,7 @@ class BusinessSignUpForm(UserCreationForm):
 
     @transaction.atomic
     def save(self, commit=True):
-        user = super().save(commit=False)
+        user = super().save()
         user.is_business = True
         group = Group.objects.get(name='Business')       
         if commit:
