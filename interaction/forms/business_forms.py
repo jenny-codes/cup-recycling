@@ -6,26 +6,22 @@ class BusinessRequestCupsForm(forms.Form):
 class BusinessReceiveCupsForm(forms.Form):
     cup_received = forms.IntegerField(label='收到杯子的 ID')
 
-    def clean_cup_received(self):
-        data = self.cleaned_data['cup_received']
-        cup_received = Cup.objects.filter(id=data)
-        embed()
-
-        # 如果杯子存在並且 Record 中有此杯子還未歸還的紀錄
-        if bool(cup_received) and cup_is_listed_unreturned_in_record(cup_received):
-            return data
-        else:
-            raise forms.ValidationError("沒有這個杯子！重新輸入")
-
-    def cup_is_listed_unreturned_in_record(cup):
-        cup_list = Record.objects.filter(cup=cup)
-        if bool(cup_list):
-            newest_record = cup_list[0]
-            if newest_record.destination == None:
+    def cup_is_elligible_to_return(self, cup):
+        newest_record = Record.objects.filter(cup=cup).last()
+        if newest_record:
+            if not newest_record.destination:
                 return True
         return False 
 
+    def clean_cup_received(self):
+        data = self.cleaned_data['cup_received']
+        cup_received = Cup.objects.filter(id=data).first()
 
+        # 如果杯子存在並且 Record 中有此杯子還未歸還的紀錄
+        if bool(cup_received) and self.cup_is_elligible_to_return(cup_received):
+            return cup_received
+        else:
+            raise forms.ValidationError("沒有這個杯子！重新輸入")
 
 class BusinessAssignCupsForm(forms.Form):
     def __init__(self, *args, **kwargs):

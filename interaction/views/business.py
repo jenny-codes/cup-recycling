@@ -45,16 +45,16 @@ def request_cups(request):
 
 @business_required
 def receive_cups(request):
-    embed()
     """ when busiess receives a cup, update Record & Cup models """
     if request.method == 'POST':
         # def in forms.py
         form = BusinessReceiveCupsForm(request.POST)
         if form.is_valid():
-            cup_received = Cup.objects.filter(id=form.cleaned_data['cup_received'])
-            if cup_received.count() != 0:
-                cup_received.update(carrier = request.user, status = 'a', carrier_type = 'b' )
-                record = Record.objects.filter(cup=cup_received)
-                if record.count() != 0:
-                    record.update(destination = request.user) 
-            return HttpResponseRedirect(reverse('business-manage-cups'))          
+            cup_received = form.cleaned_data['cup_received']
+            cup_received.carrier = request.user
+            cup_received.status = 'a'
+            cup_received.carrier_type = 'b'
+            cup_received.save()
+            record = Record.objects.filter(cup=cup_received)
+            record.update(destination = request.user) 
+        return HttpResponseRedirect(reverse('business-manage-cups'))   

@@ -43,11 +43,11 @@
   </div>
 
 <!-- Modal -->
-<div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="requestCupsModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">申請杯子</h5>
+        <h5 class="modal-title" id="requestCupsModalLabel">申請杯子</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <div class="x-origin" aria-hidden="true">
                 <span class="x-icon x-icon-l"></span>
@@ -66,11 +66,11 @@
   </div>
 </div>
 
-<div class="modal fade" id="receiveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="receiveModal" tabindex="-1" role="dialog" aria-labelledby="receiveCupsModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">拿回杯子</h5>
+        <h5 class="modal-title" id="receiveCupsModalLabel">拿回杯子</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <div class="x-origin" aria-hidden="true">
             <span class="x-icon x-icon-l"></span>
@@ -79,7 +79,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="{% url 'business-request-cups' %}" method="post" class="input-area">
+        <form action="{% url 'business-receive-cups' %}" method="post" class="input-area">
           {% csrf_token %}
           {{ receive_form }}
           <input type="submit" value="提交" name="submit" class="btn input-btn-style">
