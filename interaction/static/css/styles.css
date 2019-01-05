@@ -122,6 +122,7 @@ html {
 			flex: 1;
 		}
 		.nav-link:hover{
+			background-color: transparent;
 			color: var(--color-text);
 		}
 		.nav-link::after{
@@ -856,7 +857,7 @@ footer{
 
 /* go-to-top button------------------------------------start */
 #top_button{
-	z-index:100;
+	z-index:99;
 	display: none;
 	position: fixed;
 	bottom: 10px;
