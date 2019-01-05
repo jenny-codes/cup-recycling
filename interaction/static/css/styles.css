@@ -991,7 +991,6 @@ input{
 	font-size: 50px;
 }
 .card{
-	padding-top:50px;
 	border:none;
 }
 .card-header{
@@ -1042,6 +1041,7 @@ td{
 	display: flex;
 	-webkit-display:flex;
 	justify-content: center;
+	margin-bottom:30px;
 }
 .send-btn{
 	width:100%;
