@@ -22,7 +22,6 @@ class CustomerSignUpView(CreateView):
     template_name = 'registration/signup_form.html'
 
     def get_context_data(self, **kwargs):
-        print('get_context_data')
         kwargs['user_type'] = 'customer'
         return super().get_context_data(**kwargs)
 

@@ -1,19 +1,23 @@
 {% extends "base_generic.html" %}
-{% block head %}為地球盡一份心力，從租借環保杯開始{% endblock %}
+{% block head %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+{% endblock %}
 
 {% block content %}
-  <form method="post" action="">{% csrf_token %}
-    <ul class="list-group">
-      {% for field in form.visible_fields %}
-        {{ field.errors }}
-        {{ field.label_tag }} 
-        {{ field }}
-        {% if field.help_text %}
-        <p class="help">{{ field.help_text|safe }}</p>
-        {% endif %}
-      {% endfor %}
-      <input type="submit" value="填好了" class="btn btn-info">
-    </ul>
-  </form>
-
+  <div class='input-sec'> 
+    <form method="post" action="">{% csrf_token %}
+      <ul class="list-group">
+        {% for field in form.visible_fields %}
+          {{ field.errors }}
+          {{ field.label_tag }} 
+          {{ field }}
+          {% if field.help_text %}
+          <p class="help">{{ field.help_text|safe }}</p>
+          {% endif %}
+        {% endfor %}
+        <input type="submit" value="填好了" class="btn btn-info">
+      </ul>
+    </form>
+  </div>
 {% endblock %}

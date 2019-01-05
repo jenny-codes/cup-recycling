@@ -13,6 +13,7 @@
   <!-- Add additional CSS in static file -->
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  {% block head %}{% endblock %}
 </head>
 <body data-spy="scroll" data-target="#navbarNav" data-offset="10">
   <div class="container-fluid">

@@ -4,8 +4,6 @@
 	justify-content: center;
 	align-items: center;
 }
-/* .input-sec幫我動態加一個div把全部的東西包住～ */
-
 
 form{
 	display: flex;
@@ -30,4 +28,8 @@ form input{
 	color:white;
 	font-weight:500;
   line-height: 20px;
+}
+
+.errorlist{
+	color: darkred;
 }
