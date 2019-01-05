@@ -230,6 +230,7 @@ html {
 	align-items: center;
 	padding:50px 0px;
 	width:100%;
+	flex:1 1 auto;
 }
 .block{
 	padding:30px 0px;
@@ -260,6 +261,11 @@ p{
 	font-size:14px;
 	margin:0;
 	padding-bottom: 20px;
+}
+.hint_word{
+	color: var(--color-warning);
+	font-weight:500;
+	padding:12px;
 }
 .img_block-item{
 	display: flex;
@@ -355,7 +361,7 @@ select{
 	padding:0;
 }
 .padding_top{
-	padding-top:40px;
+	padding-top:80px;
 }
 /* 共同設定---------------------------------------end */
 /* 小遊戲區-------------------------------------start */
@@ -374,17 +380,32 @@ select{
 	border-radius: 16% 84% 34% 66% / 76% 22% 78% 24%;
 	padding:50px 0px;
 }
+.game-btn{
+	border:none;
+	margin-bottom:20px;
+	width:100%;
+	max-width:200px;
+	height:50px;
+	margin:0px 20px;
+	border-radius:42% 58% 40% 60% / 59% 35% 65% 41%;
+	font-weight:500;
+	font-size:14px;
+	color:var(--color-text);
+	background-color: var(--color-btn);
+}
+.game-btn:hover{
+	background-color: var(--color-text);
+	color:var(--color-btn);
+}
 .banner{
 	margin:0 auto;
-	height:250px;
 	width:85%;
+	height:200px;
 	background: url(../asset/1x/banner-el.png) center/contain no-repeat;
 }
 .banner-btn{
-	position: absolute;
-	bottom:30px;
-	left:50%;
-	transform:translateX(-50%);
+	display: block;
+	margin: 20px auto 0px auto;
 }
 .game-slide h2{
 	background: none;
@@ -420,30 +441,9 @@ select{
 button{
 	outline: none !important;
 }
-.game-btn{
-	border:none;
-	margin-bottom:20px;
-	width:100%;
-	max-width:200px;
-	height:50px;
-	margin:0px 20px;
-	border-radius:42% 58% 40% 60% / 59% 35% 65% 41%;
-	font-weight:500;
-	font-size:14px;
-	color: var(--color-text);
-	background-color: var(--color-main);
-}
-.game-btn:hover{
-	background-color: var(--color-btn);
-}
 .game_big_word{
 	font-size:14px;
 	font-weight:500;
-}
-.hint_word{
-	color: var(--color-warning);
-	font-weight:500;
-	padding:12px;
 }
 .game_highlight_word{
 	font-size: 16px;
@@ -476,8 +476,8 @@ button{
 	align-items: flex-end;
 }
 .game_img{
-	width:150px;
-	height:100px;
+	width:100px;
+	height:50px;
 	margin:10px 20px;
 }
 .game_img1{
@@ -545,6 +545,18 @@ button{
 .rangebar:hover {
   opacity: 1;
 }
+.rangebar::before,.rangebar::after{
+	display:block;
+	margin-top: 10px;
+}
+.rangebar::before{
+	content:'1年';
+	margin-left:-20px;
+}
+.rangebar::after{
+	content:'10年';
+	margin-right:-30px;
+}
 
 .rangebar::-webkit-slider-thumb {
 	-webkit-appearance: none;
@@ -609,7 +621,6 @@ button{
 	height:350px;
 }
 .plan_img{
-	position: absolute;
 	flex-basis: 100%;
 	max-width: 500px;
 	height:250px;
@@ -650,6 +661,7 @@ button{
 	justify-content: flex-start;
 	align-items: center;
 	width:100%;
+	flex:1 1 auto;
 }
 .process_sec{
 	display: flex;
@@ -949,7 +961,11 @@ input{
 	border: 1px solid var(--color-second);
 }
 /* 登入登出--------------------------------------------------------end */
-/* 顧客後台 */
+/* 顧客後台------------------------------------------------------start */
+#customer-cup-count{
+	font-size: 30px;
+	color:var(--color-btn);
+}
 .table_sec{
 	padding-top:30px;
 	display: flex;
@@ -986,6 +1002,7 @@ input{
 }
 .table td{
 	vertical-align: center;
+	font-size:12px;
 }
 .table_id{
 	font-weight:500;
@@ -1005,6 +1022,7 @@ td{
 }
 .table thead th{
 	border:none;
+	font-size:14px;
 }
 .th-id:nth-child(1){
 	width:60px;
@@ -1060,15 +1078,63 @@ td{
 #id_email{
 	width:260px;
 }
-/* 公司後台 */
-@media only screen and (min-width:400px){
-	.banner{
-		position: relative;
-		width:100%;
-		max-width:500px;
-		background: url(../asset/1x/banner-pc-el.png) center/contain no-repeat;
-	}
+/* 公司後台-------------------------------------------------end */
+/* sign-up introduciton ---------------------------------start */
+.signup_section{
+	height:100vh;
+	display: flex;
+	flex:1 1;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
+.intro_card{
+	display: flex;
+	flex:auto auto auto;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--color-second);
+	height:600px;
+	width:350px;
+	margin:20px;
+	padding:30px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 3px var(--color-second);
+	transition:transform 0.5s;
+}
+.intro_card:hover{
+	transform: translate(-5px,-5px);
+}
+.card_header{
+	display: flex;
+	flex-direction:column;
+	align-items: center;
+}
+.card_header h3{
+	padding:20px;
+}
+.card_img{
+	width:180px;
+	height:180px;
+}
+.membership_img{
+	background: url(../asset/1x/member.png) center/contain no-repeat;
+}
+.store_img{
+	background: url(../asset/1x/store.png) center/contain no-repeat;
+}
+.card_content{
+	background-color: var(--color-text);
+	padding:20px;
+	overflow: scroll;
+	height:250px;
+	border-radius: 10px;
+}
+.card_content p{
+	text-align:left;
+}
+/* signup-intro--------------------------------------------end */
 @media (min-width:650px){
 	h1{
 		font-size: 26px;
@@ -1116,6 +1182,12 @@ td{
 	}
 	.nav-item{
 		padding:0px 20px;
+	}
+	.banner{
+		margin:0 auto;
+		height:200px;
+		width:85%;
+		background: url(../asset/1x/banner-pc-el.png) center/contain no-repeat;
 	}
 	.plan_img_sec{
 		width:600px;
@@ -1182,5 +1254,17 @@ td{
 	}
 	.game_big_word input{
 		width: 100px;
+	}
+	.game_img{
+		width:150px;
+		height:100px;
+		margin:10px 20px;
+	}
+	.signup_section{
+		flex-direction: row;
+	}
+	.table td{
+		vertical-align: center;
+		font-size:14px;
 	}
 }
