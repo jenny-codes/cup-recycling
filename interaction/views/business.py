@@ -45,9 +45,10 @@ def request_cups(request):
 
 @business_required
 def receive_cups(request):
+    embed()
     """ when busiess receives a cup, update Record & Cup models """
     if request.method == 'POST':
-        #def in forms.py
+        # def in forms.py
         form = BusinessReceiveCupsForm(request.POST)
         if form.is_valid():
             cup_received = Cup.objects.filter(id=form.cleaned_data['cup_received'])

@@ -1,78 +1,66 @@
-var navbar = document.querySelector(".navbar");
-var navbar_height = navbar.offsetHeight;
-
-function myFunction() {
-  if (window.pageYOffset >= navbar_height) {
-    navbar.classList.add("navbar_fixed");
-  } else {
-    navbar.classList.remove("navbar_fixed");
-  }
+// 畫面滑動會發生的事情
+window.onscroll = function(){
+  toTopShow();
 }
 
-document.querySelector('#nav-toggle').addEventListener('click',function(){
-  document.querySelector('.menu').classList.toggle('toggle_menu')
-})
-
-document.querySelector('#navbarDropdown').addEventListener('click',function(){
-  document.querySelector('.dropdown-menu').classList.toggle('show');
-  var dropdownItem = document.querySelectorAll('.dropdown-item');
-  for(i=0;i<dropdownItem.length;i++){
-    dropdownItem[i].classList.toggle('click');
-  }
-})
-
-
-window.onscroll = function(){
-  scrollDown();
-  myFunction()};
-
 var top_button = document.getElementById("top_button");
-
-function scrollDown(){
+function toTopShow(){
   if (document.documentElement.scrollTop > 50){
     top_button.style.display = "block";
     } else{
     top_button.style.display = "none";
     }
 }
-
 function toTop(){
   document.documentElement.scrollTop = 0;
 }
 
+// gif
+function gifFunc() {
+  var gif = document.querySelector('.animation');
+  setTimeout(function(){ gif.add('disappear');}, 1000);
+}
+
 // 遊戲互動區
 $(document).ready(function() {
-  $(".game-slide:first").fadeIn()
+  $(".game-slide:first").fadeIn();
 });
 
 function changeFrame(item){
   var frame = item.closest( ".game-slide" );
   if ( frame.next().length != 0 ){
-    frame.hide()
+    frame.hide();
     frame.next().slideDown();
   } else{  
     $("html, body").scrollTop($("#sec_cooperation").offset().top);
   }
 };
 
-$( "#q1-1, #q1-2, #q2" ).click(function() {
+function calculate(param){
+  var n_drinks = $( "#q2-drinks" ).val();
+  return Number.parseFloat(n_drinks*param).toFixed(1);
+}
+
+$( "#q0-1, #q1-1, #q1-2, #q2" ).click(function() {
   changeFrame($( this ));
 });
 
 // 選身高與每週杯數
 $( "#q2-2" ).click(function() {
-  var n_drinks = $( "#q2-drinks" ).val();
   var height = $( "#q2-height" ).val();
-  $( ".a3-1" ).text((n_drinks*780/height).toPrecision(2));
-  $( ".a3-2" ).text((n_drinks*39.9).toPrecision(2));
-  $( ".a3-3" ).text((n_drinks*13.3).toPrecision(2));
-  $( ".a3-4" ).text((n_drinks*1.82).toPrecision(2));
-  $( ".a3-5" ).text((n_drinks*1.37).toPrecision(2));
+  $( ".a3-1" ).text((calculate(780/height)));
+  $( ".a3-2" ).text(calculate(39.9));
+  $( ".a3-3" ).text(calculate(13.3));
+  $( ".a3-4" ).text(calculate(18.2));
+  $( ".a3-5" ).text(calculate(1.37));
 
   changeFrame($( this ));
 });
 
 $( "#q3" ).click(function() {
+  var height = $( "#q2-height" ).val();
+  $( ".a3-2" ).text(calculate(39.9)+0.3);
+  $( ".a3-3" ).text(calculate(13.3)+1);
   changeFrame($( this ));
 });
 
@@ -92,7 +80,7 @@ slider.oninput = function() {
   }
   $( ".game-scalable" ).each(function(idx) {
     original = original_vals[idx];
-    $( this ).text((original*scaler).toPrecision(2));
+    $( this ).text((original*scaler).toFixed(1));
   });
 }
 

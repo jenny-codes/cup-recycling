@@ -1,6 +1,4 @@
 from interaction.views import render
+
 def index(request):
-
-    context = {}
-
-    return render(request, 'index.html', context=context)
+    return render(request, 'index.html', context={})
