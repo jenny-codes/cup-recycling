@@ -31,3 +31,7 @@ form input{
 	font-weight:500;
   line-height: 20px;
 }
+
+.errorlist{
+	color: darkred;
+}

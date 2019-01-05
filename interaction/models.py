@@ -1,8 +1,10 @@
 from django.db import models
 from django.urls import reverse # Used to generate URLs by reversing the URL patterns
 from django.contrib.auth.models import AbstractUser, Group
+from django.contrib.auth.validators import UnicodeUsernameValidator
 from datetime import date
 import re
+from IPython import embed
 
 """ Manager Classes """
 class CupManager(models.Manager):
@@ -41,14 +43,31 @@ class Cup(models.Model):
         return str(self.pk)
 
 class CupUser(AbstractUser):
-    phone_number = models.CharField(blank=True, null=True, max_length=10, help_text='e.g. 0912345678')
-    address = models.CharField(blank=True, null=True, max_length=300)
-    title = models.CharField(blank=True, null=True, max_length=300)
+    username = models.CharField(
+        error_messages={'unique': '有人使用這個名字了'}, 
+        help_text='', 
+        max_length=150, 
+        unique=True, 
+        validators=[UnicodeUsernameValidator()], 
+        verbose_name='用戶名'
+    )
+    password = models.CharField(max_length=128, verbose_name='密碼')
+    last_name = models.CharField(blank=True, max_length=150, verbose_name='姓氏')
+    first_name = models.CharField(blank=True, max_length=30, verbose_name='名字')
+
+    title = models.CharField(blank=True, null=True, max_length=300, verbose_name='公司稱號')
+    address = models.CharField(blank=True, null=True, max_length=300, verbose_name='地址')
+    phone_number = models.CharField(blank=True, null=True, max_length=10, help_text='e.g. 0912345678', verbose_name='電話號碼')
+    
 
     # staff(built-in), customer, business
     is_customer = models.BooleanField(default=False, verbose_name='customer status')
     is_business = models.BooleanField(default=False, verbose_name='business status')
 
+    # 回傳用戶的名字
+    # 如果使用者有姓有名，代表是顧客，回傳使用者姓名。
+    # 如果使用者有稱號，代表是公司，回傳公司名號。
+    # 如果都沒有提供，或是不完整，則回傳用戶名。
     @property
     def name(self):
         if self.first_name and self.last_name:

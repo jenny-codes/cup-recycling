@@ -1,5 +1,8 @@
 {% extends "base_generic.html" %}
-{% block head %}為地球盡一份心力，從租借環保杯開始{% endblock %}
+{% block head %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+{% endblock %}
 
 {% block content %}
   <form method="post" action="">{% csrf_token %}
