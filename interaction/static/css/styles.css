@@ -1052,7 +1052,6 @@ td{
 	background-color: var(--color-btn);
 }
 .input-sec{
-	height:100vh;
 	display: flex;
 	-webkit-display:flex;
 	flex-direction: column;

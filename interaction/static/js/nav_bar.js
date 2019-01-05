@@ -25,7 +25,6 @@ document.querySelector('#navbarDropdown').addEventListener('mouseover',function(
   document.querySelector('.dropdown-menu').classList.toggle('show');
   var dropdownItem = document.querySelectorAll('.dropdown-item');
   for(i=0;i<dropdownItem.length;i++){
-    dropdownItem[i].classList.toggle('click');
-    // pointEvent = none/auto;
+    dropdownItem[i].classList.toggle('click'); // pointEvent = none/auto;
   }
 })

@@ -1,35 +1,37 @@
-.input-sec{
-	height:100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 form{
 	display: flex;
-	justify-content: center;
-	align-items: center;
   flex-direction: column;
-  padding-top:50px;
 }
 form label{
-	padding:20px;
+	display: block;
 	font-size:18px;
+	margin-top:10px;
 }
 form input{
-	margin:5px 0px 10px 0px;
-	padding-left:10px; 
+	display: block;
+	padding:10px; 
 	text-align: left;
+}
+.help{
+	padding:0;
+	text-align: left;
+	color:var(--color-warning);
 }
 .btn-info{
 	background-color: #5EBC9D;
   border: 2px solid #5EBC9D;
-	padding:5px 10px;
+	padding:20px 10px;
 	color:white;
 	font-weight:500;
-  line-height: 20px;
+	line-height: 7px;
+	border:none;
+	margin-top:20px;
 }
-
+.btn-info:hover{
+	box-shadow: 0px 0px 3px var(--color-main);
+	background-color:var(--color-main);
+	border:none;
+}
 .errorlist{
 	color: darkred;
 }
