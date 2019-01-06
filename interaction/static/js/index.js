@@ -6,9 +6,9 @@ window.onscroll = function(){
 var top_button = document.getElementById("top_button");
 function toTopShow(){
   if (document.documentElement.scrollTop > 50){
-    top_button.style.display = "block";
+    top_button.style.bottom = "10px";
     } else{
-    top_button.style.display = "none";
+    top_button.style.bottom = "-100px";
     }
 }
 function toTop(){

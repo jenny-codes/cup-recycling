@@ -392,11 +392,11 @@ select{
 	font-weight:500;
 	font-size:14px;
 	color:var(--color-text);
-	background-color: var(--color-btn);
+	background-color: var(--color-main);
 }
 .game-btn:hover{
 	background-color: var(--color-text);
-	color:var(--color-btn);
+	color:var(--color-main);
 }
 .banner{
 	margin:0 auto;
@@ -858,15 +858,15 @@ footer{
 /* go-to-top button------------------------------------start */
 #top_button{
 	z-index:99;
-	display: none;
 	position: fixed;
-	bottom: 10px;
+	bottom: -100px;
 	right:10px;
 	width:40px;
 	height:40px;
 	border-radius: 50%;
 	border: none;
 	outline: none;
+	transition:0.5s;
 	background-color: var(--color-main);
 	box-shadow: 0px 0px 5px var(--color-shadow);
 }
@@ -1222,6 +1222,7 @@ td{
 	.dropdown-item{
 		color:var(--color-text);
 		font-size:16px;
+		margin:10px 0;
 	}
 	.menu{
 		background-color: transparent;
