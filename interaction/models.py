@@ -51,13 +51,13 @@ class CupUser(AbstractUser):
         validators=[UnicodeUsernameValidator()], 
         verbose_name='用戶名'
     )
-    password = models.CharField(max_length=128, verbose_name='密碼')
-    last_name = models.CharField(blank=True, max_length=150, verbose_name='姓氏')
-    first_name = models.CharField(blank=True, max_length=30, verbose_name='名字')
-
-    title = models.CharField(blank=True, null=True, max_length=300, verbose_name='公司稱號')
-    address = models.CharField(blank=True, null=True, max_length=300, verbose_name='地址')
-    phone_number = models.CharField(blank=True, null=True, max_length=10, help_text='e.g. 0912345678', verbose_name='電話號碼')
+    password    = models.CharField(max_length=128, verbose_name='密碼')
+    last_name   = models.CharField(blank=True, max_length=150, verbose_name='姓氏')
+    first_name  = models.CharField(blank=True, max_length=30, verbose_name='名字')
+    email       =  models.EmailField(blank=True, max_length=254, verbose_name='email')
+    title       = models.CharField(blank=True, null=True, max_length=300, verbose_name='公司稱號')
+    address     = models.CharField(blank=True, null=True, max_length=300, verbose_name='地址')
+    phone_number= models.CharField(blank=True, null=True, max_length=10, help_text='e.g. 0912345678', verbose_name='電話號碼')
     
 
     # staff(built-in), customer, business
