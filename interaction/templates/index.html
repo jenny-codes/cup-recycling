@@ -1,4 +1,11 @@
 {% extends "base_generic.html" %}
+
+{% block animation %}
+  {% if not request.session.animation %}
+    <div class="animation"></div>
+  {% endif %}
+{% endblock %}
+
 {% block content %}
   <div class="col-12 pt-4 sec_game section" id="sec_game">
     <div class="col-12 slideshow-container">

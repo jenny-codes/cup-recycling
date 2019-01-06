@@ -40,8 +40,12 @@ function calculate(param){
   var n_drinks = $( "#q2-drinks" ).val();
   return Number.parseFloat(n_drinks*param).toFixed(1);
 }
+$( "#q0-1" ).click(function() {
+  $( ".animation" ).removeClass('animation');
+  changeFrame($( this ));
+});
 
-$( "#q0-1, #q1-1, #q1-2, #q2" ).click(function() {
+$( "#q1-1, #q1-2, #q2" ).click(function() {
   changeFrame($( this ));
 });
 
