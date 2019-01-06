@@ -40,12 +40,8 @@ function calculate(param){
   var n_drinks = $( "#q2-drinks" ).val();
   return Number.parseFloat(n_drinks*param).toFixed(1);
 }
-$( "#q0-1" ).click(function() {
-  $( ".animation" ).removeClass('animation');
-  changeFrame($( this ));
-});
 
-$( "#q1-1, #q1-2, #q2" ).click(function() {
+$( "#q0-1, #q1-1, #q1-2, #q2" ).click(function() {
   changeFrame($( this ));
 });
 
@@ -63,8 +59,8 @@ $( "#q2-2" ).click(function() {
 
 $( "#q3" ).click(function() {
   var height = $( "#q2-height" ).val();
-  $( ".a3-2" ).text(calculate(39.9)+0.3);
-  $( ".a3-3" ).text(calculate(13.3)+1);
+  $( ".a3-2" ).text(Number.parseFloat(calculate(39.9))+0.3);
+  $( ".a3-3" ).text(Number.parseFloat(calculate(13.3))+1);
   changeFrame($( this ));
 });
 
