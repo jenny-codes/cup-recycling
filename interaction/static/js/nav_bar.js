@@ -22,7 +22,7 @@ document.querySelector('#nav-toggle').addEventListener('click',function(){
 
 // navbar下拉選單出現，並且可點選
 document.querySelector('#navbarDropdown').addEventListener('mouseover',function(){
-  document.querySelector('.dropdown-menu').style.height='';
+  document.querySelector('.dropdown-menu').classList.toggle('show');
   var dropdownItem = document.querySelectorAll('.dropdown-item');
   for(i=0;i<dropdownItem.length;i++){
     dropdownItem[i].classList.toggle('click'); // pointEvent = none/auto;
