@@ -25,7 +25,8 @@ form input{
 	font-weight:500;
 	line-height: 7px;
 	border:none;
-	margin-top:20px;
+	margin:20px 0;
+	
 }
 .btn-info:hover{
 	box-shadow: 0px 0px 3px var(--color-main);
