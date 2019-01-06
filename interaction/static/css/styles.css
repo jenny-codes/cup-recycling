@@ -342,7 +342,7 @@ select{
 	font-size: 16px;
 }
 .modal-header .close{
-	margin-top:-5px;
+	margin-top:-8px;
 	margin-right:0px;
 }
 .x-origin{
@@ -918,7 +918,7 @@ footer{
 	height:50px;
 }
 .log_head p{
-	line-height: 50px;
+	line-height: 55px;
 	color: var(--color-text);
 }
 .log_warning_word{
@@ -1265,6 +1265,9 @@ td{
 	}
 	.signup_section{
 		flex-direction: row;
+	}
+	.log_head p{
+		font-size:16px;
 	}
 	.table td{
 		vertical-align: center;
