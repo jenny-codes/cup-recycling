@@ -59,8 +59,8 @@ $( "#q2-2" ).click(function() {
 
 $( "#q3" ).click(function() {
   var height = $( "#q2-height" ).val();
-  $( ".a3-2" ).text(calculate(39.9)+0.3);
-  $( ".a3-3" ).text(calculate(13.3)+1);
+  $( ".a3-2" ).text(Number.parseFloat(calculate(39.9))+0.3);
+  $( ".a3-3" ).text(Number.parseFloat(calculate(13.3))+1);
   changeFrame($( this ));
 });
 

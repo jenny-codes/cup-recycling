@@ -1,4 +1,5 @@
 {% extends "base_generic.html" %}
+
 {% block content %}
   <div class="signup_section">
     <div class="intro_card">
@@ -13,7 +14,9 @@
           另外，加入會員後，您將能看到每次的借還紀錄，幫助追蹤您的飲用足跡，同時我們幫您計算您使用環保杯省下的水和碳，在會員頁您能從視覺化的資料實際看見您對地球的幫助！
         </p>
       </div>
-      <button class="mt-4 btn-style">成為會員</button>
+      <form action="{% url 'customer_signup' %}" method="get">
+        <button class="mt-4 btn-style" type="submit" value="">成為會員</button>
+      </form>
     </div>
     <div class="intro_card">
       <div class="card_header">
@@ -27,9 +30,9 @@
           申請成為合作店家，我們將進一步和您聯絡！
         </p>
       </div>
-      <button class="mt-4 btn-style">成為合作店家</button>
+      <form action="{% url 'business_signup' %}" method="get">
+        <button class="mt-4 btn-style" type="submit" value="">成為合作店家</button>
+      </form>
     </div>
   </div>
-  {% load static %}
-  <script src="{% static 'js/index.js' %}"></script>
 {% endblock %}

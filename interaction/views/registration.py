@@ -38,3 +38,6 @@ def login_success(request):
         return redirect("business-manage-cups")
     else:
         return redirect("/")
+
+def signup_intro(request):
+    return render(request, 'registration/signup_intro.html', context={})

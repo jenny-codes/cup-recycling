@@ -1,4 +1,11 @@
 {% extends "base_generic.html" %}
+
+{% block animation %}
+  {% if not request.session.animation %}
+    <div class="animation"></div>
+  {% endif %}
+{% endblock %}
+
 {% block content %}
   <div class="col-12 pt-4 sec_game section" id="sec_game">
     <div class="col-12 slideshow-container">
@@ -252,8 +259,8 @@
           </div>
         </div>
       </div>
-      <form action="#">
-        <button class="see-more-btn btn-style" type="submit" value="了解更多">了解更多</button>
+      <form action="{% url 'signup_intro' %}" method="get">
+        <button class="see-more-btn btn-style" type="submit" value="">了解更多</button>
       </form>
   </div>
   <button onclick="toTop()" class="top_button" id="top_button" title="go to top"></button>

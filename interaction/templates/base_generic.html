@@ -17,7 +17,7 @@
 </head>
 <body data-spy="scroll" data-target="#navbarNav" data-offset="10">
   <div class="container-fluid">
-    <div class="animation"></div>
+    {% block animation %}{% endblock %}
     {% include "nav_bar.html" %}
     <div class="row padding_top">
       {% block content %}{% endblock %}

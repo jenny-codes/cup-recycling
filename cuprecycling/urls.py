@@ -14,6 +14,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('interaction/', include('interaction.urls')),
     path('login-success/', registration.login_success, name='login_success'),
+    path('accounts/signup/intro/', registration.signup_intro, name='signup_intro'),
     path('accounts/signup/customer/', registration.CustomerSignUpView.as_view(), name='customer_signup'),
     path('accounts/signup/business/', registration.BusinessSignUpView.as_view(), name='business_signup'),
 ]
