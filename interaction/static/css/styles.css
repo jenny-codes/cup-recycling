@@ -282,12 +282,12 @@ p{
 	background-color: var(--color-main);
 }
 .btn-style{
+	display: block;
 	border:none;
-	margin-bottom:20px;
 	width:100%;
 	max-width:200px;
 	height:50px;
-	margin:0px 20px;
+	padding:0 20px;
 	border-radius:42% 58% 40% 60% / 59% 35% 65% 41%;
 	font-weight:500;
 	font-size:14px;
@@ -1084,7 +1084,6 @@ td{
 /* 公司後台-------------------------------------------------end */
 /* sign-up introduciton ---------------------------------start */
 .signup_section{
-	height:100vh;
 	display: flex;
 	flex:1 1;
 	justify-content: center;
