@@ -31,8 +31,8 @@ html {
 	position: fixed;
 	width:100vw;
 	height:100vh;
-	background: var(--color-text) url(../asset/start_animation.gif) center/contain no-repeat;
-	animation: disappear 3s both;
+	background: var(--color-text) url(../asset/start_animation_logoexist.gif) center/contain no-repeat;
+	animation: disappear 9s both;
 }
 @keyframes disappear{
 	0%{opacity: 1;}
@@ -160,6 +160,7 @@ html {
 			text-align: center;
 			pointer-events: none;
 			font-weight:500;
+			margin:10px 0;
 		}
 		.dropdown-item:hover{
 			color: var(--color-main);
@@ -334,13 +335,15 @@ select{
 }
 .modal-header{
 	background-color: var(--color-main);
-	height:60px;
+	height:50px;
 }
 .modal-title{
 	color: var(--color-text);
+	font-size: 16px;
 }
 .modal-header .close{
-	margin:0px;
+	margin-top:-5px;
+	margin-right:0px;
 }
 .x-origin{
 	position: relative;
@@ -395,8 +398,7 @@ select{
 	background-color: var(--color-main);
 }
 .game-btn:hover{
-	background-color: var(--color-text);
-	color:var(--color-main);
+	background-color: var(--color-btn);
 }
 .banner{
 	margin:0 auto;
@@ -939,6 +941,7 @@ footer{
 	color: var(--color-text);
 	padding:5px 20px;
 	text-align: center;
+	width:100%;
 }
 
 .logan_btn{
@@ -1067,7 +1070,7 @@ td{
 }
 .input-area label{
 	padding:18px;
-	font-size:20px;
+	font-size:16px;
 	font-weight: 500;
 }
 .input-area input{
