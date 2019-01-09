@@ -73,7 +73,7 @@ function set_original_vals() {
   }).get()
 }
 slider.oninput = function() {
-  scaler = this.value/50;
+  scaler = this.value;
   if (slider_initialized == false) {
     set_original_vals();
     slider_initialized = true;
