@@ -29,7 +29,7 @@ pyOpenSSL==18.0.0
 PySocks==1.6.8
 python-dateutil==2.7.5
 pytz==2018.7
-PyYAML==3.13
+PyYAML==5.4
 requests==2.20.1
 six==1.11.0
 traitlets==4.3.2
